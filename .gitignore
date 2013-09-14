@@ -1,0 +1,8 @@
+node_modules
+.DS_Store
+.tmp
+.sass-cache
+*.min.*
+
+# Build for coffeescript
+src/js/header.js

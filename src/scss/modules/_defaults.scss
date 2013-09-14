@@ -1,0 +1,14 @@
+* {
+  -webkit-font-smoothing:antialiased;
+  font-smoothing:antialiased;
+  text-rendering:optimizeLegibility;
+  @include vendor(box-sizing, border-box);
+}
+html {
+  font-size:62.5%;
+}
+body {
+  font:300 13px/1.6 'Helvetica Neue', Helvetica, Arial;
+  background:#FFF;
+  color:#444;
+}
