@@ -1,3 +1,7 @@
+//----------------------------------
+// POSITIONING
+//----------------------------------
+
 @mixin position ($position: relative, $coordinates: 0 0 0 0) {
     @if type-of($position) == list {
         $coordinates:$position;
@@ -36,3 +40,11 @@
         left:$left;
     }
 }
+
+// Example usage:
+// @include position(relative, 0 5px 0 0);
+
+// Note:
+// Use '0' for values to ignore, and '0px' for the value
+// of the positioning you need if the value is zero.
+// Need to include all co-ords in the mixin even if unused.

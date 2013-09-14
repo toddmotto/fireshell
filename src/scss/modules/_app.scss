@@ -1,0 +1,83 @@
+.header__download {
+  float:left;
+  text-align:center;
+  margin:10px auto 0;
+  width:100%;
+  color:#fff;
+}
+.header--alpha {
+  clear:both;
+  float:left;
+  width:100%;
+  text-align:center;
+  color:#fff;
+  margin:80px 0 15px;
+  text-shadow:0 1px 3px rgba(0,0,0,.8);
+  font-size:28px;
+}
+.header--beta {
+  color:#fff;
+  text-shadow:0 1px 3px rgba(0,0,0,.8);
+  font-size:16px;
+}
+.header--btn {
+  display:inline-block;
+}
+.header__git {
+  display:inline-block;
+  padding:0 25px;
+  line-height:40px;
+  background:rgba(0,0,0,.6);
+  &:before {
+    content:'$';
+    color:#bc6897;
+  }
+}
+.header__maintained {
+  margin:25px 0 0;
+  color:rgba(255,255,255,.5);
+  a {
+    color:#fff;
+  }
+}
+.header__share {
+  margin:15px 0 0;
+  font-size:16px;
+  a {
+    color:#fff;
+    display:inline-block;
+    margin:0 10px;
+  }
+}
+.main {
+
+}
+.main__column {
+  margin:50px 2% 50px 0;
+  float:left;
+  text-align:center;
+}
+.main__column--third {
+  width:32%;
+  &:last-child {
+    margin-right:0;
+  }
+}
+.main__column--half {
+  text-align:left !important;
+  width:49%;
+  &:last-child {
+    margin-right:0;
+  }
+}
+.main__feature {
+  background:#f5f5f5;
+}
+.main__feature--alpha {
+  text-align:center;
+  font-size:18px;
+  margin:25px 0;
+}
+.main--beta {
+  margin:15px 0;
+}

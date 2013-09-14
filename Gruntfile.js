@@ -1,7 +1,7 @@
 /*!
  * FireShell Gruntfile
- * http://getfireshell.com
  * @author Todd Motto
+ * http://getfireshell.com
  */
 
 'use strict';
@@ -35,7 +35,7 @@ module.exports = function (grunt) {
     pkg: grunt.file.readJSON('package.json'),
 
     /**
-     * Set project info
+     * Set project paths
      */
     project: {
       src: 'src',
@@ -78,7 +78,7 @@ module.exports = function (grunt) {
       livereload: {
         options: {
           middleware: function (connect) {
-            return [lrSnippet, mountFolder(connect, 'app')];
+            return [lrSnippet, mountFolder(connect, '')];
           }
         }
       }
@@ -175,7 +175,7 @@ module.exports = function (grunt) {
     watch: {
       concat: {
         files: '<%= project.src %>/js/{,*/}*.js',
-        tasks: ['concat:dev', 'jshint']
+        tasks: ['concat']
       },
       sass: {
         files: '<%= project.src %>/scss/{,*/}*.{scss,sass}',
@@ -186,7 +186,7 @@ module.exports = function (grunt) {
           livereload: LIVERELOAD_PORT
         },
         files: [
-          '<%= project.app %>/index.html',
+          '{,*/}*.html',
           '<%= project.app %>/css/*.css',
           '<%= project.app %>/js/{,*/}*.js',
           '<%= project.app %>/{,*/}*.{png,jpg,jpeg,gif,webp,svg}'

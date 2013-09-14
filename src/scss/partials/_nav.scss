@@ -1,9 +1,20 @@
 .nav {
-  ul {
-    list-style:none;
-    li {
-      a {
-
+  float:right;
+  margin:18px 0 0;
+  li {
+    display:inline-block;
+    *display:inline;
+    zoom:1;
+    a {
+      color:#fff;
+      display:block;
+      padding:5px 15px;
+      text-shadow:0 1px 3px rgba(0,0,0,.8);
+      &:hover {
+        color:rgba(255,255,255,.8);
+      }
+      i {
+        margin:0 5px 0 0;
       }
     }
   }

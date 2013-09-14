@@ -1,14 +1,52 @@
 * {
+  margin:0;
+  padding:0;
   -webkit-font-smoothing:antialiased;
   font-smoothing:antialiased;
   text-rendering:optimizeLegibility;
   @include vendor(box-sizing, border-box);
 }
-html {
-  font-size:62.5%;
-}
 body {
-  font:300 13px/1.6 'Helvetica Neue', Helvetica, Arial;
+  font:300 14px/1.6 'Lato', Helvetica, Arial;
   background:#FFF;
   color:#444;
+}
+h1,
+h2,
+h3,
+h4 {
+  margin:0;
+  font-weight:normal;
+  position:relative;
+}
+h1, .alpha {
+  font-size:24px;
+}
+h2, .beta {
+  font-size:20px;
+}
+h3, .gamma {
+  font-size:14px;
+}
+h4, .delta {
+  font-size:20px;
+}
+ul,
+ol {
+  margin:0;
+  padding:0;
+  list-style:none;
+}
+a {
+  color:#444;
+  text-decoration:none;
+}
+img {
+  vertical-align:bottom;
+  max-width:100%;
+}
+.wrapper {
+  width:95%;
+  max-width:1140px;
+  margin:0 auto;
 }
