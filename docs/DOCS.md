@@ -3,8 +3,8 @@
 ## Project setup and Grunt installation
 FireShell utilises open source components running on the Terminal/command-line for it's workflow, you'll need to install Node and Grunt. Here's a walkthrough of how to get a project up and running in minutes. Once Node and Grunt are installed all future projects running Grunt are instant.
 
-1. Install [Node.js](http://nodejs.org), [Sass](http://sass-lang.com) and [Git](http://git-scm.com) on your machine.
-2. [Install Grunt](http://gruntjs.com/getting-started) using `npm install -g grunt-cli`. You may need to use `sudo` in front of the Grunt install command to give it permissions.
+1. Install [Node.js](http://nodejs.org/download), [Sass](http://sass-lang.com/tutorial.html) and [Git](http://git-scm.com) on your machine. If you're a Windows user you'll also need to install [Ruby](http://rubyinstaller.org/downloads).
+2. [Install Grunt](http://gruntjs.com/getting-started) using `npm install -g grunt-cli`. You may need to use `sudo` in front of the Grunt install command to give it permissions. For Windows tips with Grunt checkout their [FAQs](http://gruntjs.com/frequently-asked-questions).
 3. Fork/Clone/Download the FireShell repository into your machine, you should hopefully see all the files and folders.
 4. Navigate to the `grunt-dev.command` file and double-click it. This will open the Terminal and install the necessary `node_modules` folder, which are FireShell's dependencies. The `grunt-dev.command` file includes a `sudo` prefix so you'll need to enter your password to install.
 5. The `grunt-dev.command` should install all the dependencies, which you can check back to see in your folder, and then run the commands associated with FireShell, and automatically open a new FireShell project running on `localhost:9000`.
