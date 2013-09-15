@@ -14,6 +14,8 @@
     <link href="//ajax.googleapis.com" rel="dns-prefetch">
     <link href="css/style.min.css" rel="stylesheet">
 
+    <script src="js/vendor/modernizr-2.6.2.min.js"></script>
+
   </head>
   <body>
 
@@ -36,6 +38,12 @@
                 <a href="//github.com/toddmotto/fireshell/blob/master/docs/DOCS.md">
                   <i class="icon-book"></i>
                   Documentation
+                </a>
+            </li><!--
+          --><li>
+                <a href="//github.com/toddmotto/fireshell/blob/master/docs/DOCS.md">
+                  <i class="icon-bug"></i>
+                  Issues
                 </a>
             </li>
           </ul>
@@ -67,6 +75,19 @@
             <a href="https://plus.google.com/share?url=http%3A%2F%2Fgetfireshell.com">
               <i class="icon-google-plus"></i>
             </a>
+            <a href="https://twitter.com/getfireshell" class="twitter-follow-button" data-show-count="false">
+              Follow @getfireshell
+            </a>
+            <script>
+            !function(d,s,id){
+              var js,fjs=d.getElementsByTagName(s)[0],
+              p=/^http:/.test(d.location)?'http':'https';
+              if(!d.getElementById(id)){js=d.createElement(s);
+                js.id=id;js.src=p+'://platform.twitter.com/widgets.js';
+                fjs.parentNode.insertBefore(js,fjs);
+              }
+            }(document,'script','twitter-wjs');
+          </script>
           </p>
         </div>
       </div>
@@ -114,13 +135,17 @@
         </div>
 
         <div class="row clear">
+          <div class="fs-video">
+            <iframe width="420" height="315" src="//www.youtube.com/embed/A_8w_z-Bi1o?rel=0" frameborder="0" allowfullscreen></iframe>
+          </div>
           <div class="main__column main__column--half">
-            <h2 class="main--beta beta">Top Features</h2>
+            <h2 class="main--beta-features beta">Top Features</h2>
             <ul>
               <li>HTML5 framework, WAI-ARIA roles and HTML5 semantics</li>
               <li>Baseline HTML5 features, DNS prefetching, responsive meta</li>
               <li>Encourages one-file CSS/JS in the view (HTML) for performance</li>
               <li>Includes jQuery CDN and relative fallback</li>
+              <li>Includes Modernizr and HTML5 Shiv</li>
               <li>Google Universal Analytics snippet</li>
               <li>Open source workflow with Grunt.js running on Node.js</li>
               <li>A grunt.command file for double-click command-line execution</li>
@@ -130,38 +155,44 @@
               <li>Annotated Gruntfile.js for extending</li>
               <li>Built-in build script for auto-minification of CSS and JavaScript files for production</li>
               <li>Pre-setup Sass/SCSS files and folders for baseline project structure and imports</li>
-              <li>Encourages modular thinking</li>
-              <li>Includes <a href="//editorconfig.org" target="_blank">.editorconfig</a> for consistent coding styles in IDEs</li>
+              <li>Includes .editorconfig for consistent coding styles in IDEs</li>
               <li>Standard .gitignore to ignore minified files and standard ignorables such as .DS_Store</li>
               <li>JSHint .jshintrc file for configuring JavaScript linting</li>
               <li>No superfluous code comments</li>
-              <li>Extremely lightweight footprint</li>
             </ul>
           </div>
           <div class="main__column main__column--half">
-            <h2 class="main--beta beta">Awesome Perks</h2>
+            <h2 class="main--beta-features beta">Comments</h2>
+            <div id="disqus_thread"></div>
+            <script>
+              var disqus_shortname = 'getfireshell';
+              (function() {
+                var dsq = document.createElement('script');
+                dsq.async = dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+                document.getElementsByTagName('head')[0].appendChild(dsq);
+              })();
+            </script>
           </div>
         </div>
-
       </div>
 
     </main>
 
     <footer class="footer" role="contentinfo">
       <div class="wrapper">
-        &copy; 2013 FireShell.
+        &copy; 2013 FireShell. MIT Licensed.
       </div>
     </footer>
 
     <script src="js/scripts.min.js"></script>
 
     <script>
-    (function(b,o,i,l,e,r){
-      b.GoogleAnalyticsObject=l;b[l]||(b[l]=function(){(b[l].q=
-      b[l].q||[]).push(arguments)});b[l].l=+new Date;
-      e=o.createElement(i);r=o.getElementsByTagName(i)[0];
-      e.src='//www.google-analytics.com/analytics.js';
-      r.parentNode.insertBefore(e,r)
+    (function(f,i,r,e,s,h){
+      f.GoogleAnalyticsObject=e;f[e]||(f[e]=function(){(f[e].q=
+      f[e].q||[]).push(arguments)});f[e].e=+new Date;
+      s=i.createElement(r);h=i.getElementsByTagName(r)[0];
+      s.src='//www.google-analytics.com/analytics.js';
+      h.parentNode.insertBefore(s,h)
     }(window,document,'script','ga'));
     ga('create','UA-XXXXX-X');ga('send','pageview');
     </script>

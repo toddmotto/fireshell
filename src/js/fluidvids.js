@@ -1,12 +1,4 @@
 /*!
- * FireShell
- * Fiercely quick and opinionated front-ends
- * http://getfireshell.com
- * @author Todd Motto
- * @version 1.0.0
- * Copyright 2013. MIT licensed.
- */
-/*!
  *  FluidVids.js v1.2.0
  *  Responsive and fluid YouTube/Vimeo video embeds.
  *  Project: https://github.com/toddmotto/fluidvids
@@ -65,8 +57,4 @@ window.fluidvids = (function (window, document, undefined) {
     }
   }
 
-})(window, document);
-(function (window, document, undefined) {
-  'use strict';
-  // FireShell
 })(window, document);
