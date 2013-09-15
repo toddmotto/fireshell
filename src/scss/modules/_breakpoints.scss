@@ -1,0 +1,40 @@
+@media only screen and (min-width:320px) and (max-width:768px) {
+  .logo,
+  .nav,
+  .footer {
+    width:100%;
+    text-align:center;
+  }
+  .header--alpha {
+    margin:15px 0;
+  }
+  .main__column--third,
+  .main__column--half {
+    width:100%;
+  }
+  .main__feature {
+    margin:0 0 15px;
+  }
+  .fs-video {
+    max-width:100%;
+  }
+  .main__column {
+    margin:10px 0;
+  }
+}
+@media only screen and (min-width:320px) and (max-width:550px) {
+  .nav li a {
+    padding:5px;
+  }
+  .header--btn {
+    width:65%;
+    padding:0 25px;
+  }
+  .header__git {
+    display:none;
+  }
+  .fs-video {
+    margin:15px 0 0;
+    padding:0;
+  }
+}
