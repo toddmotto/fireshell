@@ -8,10 +8,6 @@ The opinionated FireShell framework. Built for the modern developer. For teams a
 * Homepage: [getfireshell.com](http://getfireshell.com)
 * Twitter: [@getfireshell](http://twitter.com/getfireshell)
 
-## Demo
-
-Check out a [demo](http://demo.getfireshell.com) of FireShell's HTML, CSS and JavaScript. To get a better view of the project it's best to dive into the project's scaffolding.
-
 ## Jump start
 
 Get started with FireShell:
