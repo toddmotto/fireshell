@@ -31,6 +31,8 @@
   &:before {
     content:'$';
     color:#bc6897;
+    position:relative;
+    left:-10px;
   }
 }
 .header__maintained {

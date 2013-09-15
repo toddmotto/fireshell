@@ -547,6 +547,8 @@ img {
 .header__git:before {
   content: '$';
   color: #bc6897;
+  position: relative;
+  left: -10px;
 }
 
 .header__maintained {
@@ -627,6 +629,10 @@ img {
 
 .logo {
   float: left;
+}
+.logo img {
+  width: 167px;
+  height: 67px;
 }
 
 .nav {
