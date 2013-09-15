@@ -1,4 +1,11 @@
 (function (window, document, undefined) {
+
   'use strict';
-  // FireShell
+
+  var input = document.querySelector('[data-select]');
+  var select = function () {
+    this.select();
+  };
+  input.addEventListener('click', select);
+
 })(window, document);

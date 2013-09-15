@@ -24,6 +24,13 @@
   display:inline-block;
 }
 .header__git {
+  input {
+    border:0;
+    outline:0;
+    width:310px;
+    color:#fff;
+    background:transparent;
+  }
   display:inline-block;
   padding:0 25px;
   line-height:40px;
