@@ -166,6 +166,16 @@ module.exports = function (grunt) {
       }
     },
 
+    // Build the site using grunt-includes
+    includes: {
+      build: {
+        cwd: 'src',
+        src: [ '*.html'],
+        dest: 'app/',
+        options: {
+        }
+      }
+    },
     /**
      * Runs tasks against changed watched files
      * https://github.com/gruntjs/grunt-contrib-watch
@@ -181,12 +191,16 @@ module.exports = function (grunt) {
         files: '<%= project.src %>/scss/{,*/}*.{scss,sass}',
         tasks: ['sass:dev']
       },
+      includes: {
+        files: ['<%= project.src %>/*.html', '<%= project.src %>/html-includes/*.html'],
+        tasks: ['includes']
+      },
       livereload: {
         options: {
           livereload: LIVERELOAD_PORT
         },
         files: [
-          '<%= project.app %>/index.html',
+          '<%= project.app %>/*.html',
           '<%= project.app %>/css/*.css',
           '<%= project.app %>/js/{,*/}*.js',
           '<%= project.app %>/{,*/}*.{png,jpg,jpeg,gif,webp,svg}'
@@ -194,6 +208,11 @@ module.exports = function (grunt) {
       }
     }
   });
+
+  /**
+   * Load any external plugins
+   */
+  grunt.loadNpmTasks('grunt-includes');
 
   /**
    * Default task
@@ -204,6 +223,7 @@ module.exports = function (grunt) {
     'jshint',
     'concat:dev',
     'connect:livereload',
+    'includes',
     'open',
     'watch'
   ]);
@@ -216,6 +236,7 @@ module.exports = function (grunt) {
   grunt.registerTask('build', [
     'sass:dist',
     'jshint',
+    'includes',
     'uglify'
   ]);
 
