@@ -187,7 +187,7 @@ module.exports = function (grunt) {
           livereload: LIVERELOAD_PORT
         },
         files: [
-          '<%= project.app %>/*.html',
+          '<%= project.app %>/{,*/}*.html',
           '<%= project.assets %>/css/*.css',
           '<%= project.assets %>/js/{,*/}*.js',
           '<%= project.assets %>/{,*/}*.{png,jpg,jpeg,gif,webp,svg}'
