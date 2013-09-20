@@ -77,6 +77,8 @@ Here are some of the main features of FireShell:
 
 ## License
 
+#### The MIT License (MIT)
+
 Copyright (c) FireShell
 
 Permission is hereby granted, free of charge, to any person obtaining a copy of
