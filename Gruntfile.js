@@ -40,6 +40,7 @@ module.exports = function (grunt) {
     project: {
       src: 'src',
       app: 'app',
+      assets: '<%= project.app %>/assets',
       css: [
         '<%= project.src %>/scss/style.scss'
       ],
@@ -104,7 +105,7 @@ module.exports = function (grunt) {
     concat: {
       dev: {
         files: {
-          '<%= project.app %>/js/scripts.min.js': '<%= project.js %>'
+          '<%= project.assets %>/js/scripts.min.js': '<%= project.js %>'
         }
       },
       options: {
@@ -125,7 +126,7 @@ module.exports = function (grunt) {
       },
       dist: {
         files: {
-          '<%= project.app %>/js/scripts.min.js': '<%= project.js %>'
+          '<%= project.assets %>/js/scripts.min.js': '<%= project.js %>'
         }
       }
     },
@@ -142,7 +143,7 @@ module.exports = function (grunt) {
           banner: '<%= tag.banner %>'
         },
         files: {
-          '<%= project.app %>/css/style.min.css': '<%= project.css %>'
+          '<%= project.assets %>/css/style.min.css': '<%= project.css %>'
         }
       },
       dist: {
@@ -151,7 +152,7 @@ module.exports = function (grunt) {
           banner: '<%= tag.banner %>'
         },
         files: {
-          '<%= project.app %>/css/style.min.css': '<%= project.css %>'
+          '<%= project.assets %>/css/style.min.css': '<%= project.css %>'
         }
       }
     },
@@ -187,9 +188,9 @@ module.exports = function (grunt) {
         },
         files: [
           '<%= project.app %>/index.html',
-          '<%= project.app %>/css/*.css',
-          '<%= project.app %>/js/{,*/}*.js',
-          '<%= project.app %>/{,*/}*.{png,jpg,jpeg,gif,webp,svg}'
+          '<%= project.assets %>/css/*.css',
+          '<%= project.assets %>/js/{,*/}*.js',
+          '<%= project.assets %>/{,*/}*.{png,jpg,jpeg,gif,webp,svg}'
         ]
       }
     }
