@@ -17,9 +17,13 @@ Get started with FireShell:
 2. Clone the git repo — `git clone
    https://github.com/toddmotto/fireshell.git`
 
+## Platform support
+
+FireShell runs on both Mac OS X, Linux and Windows. Automated command-line scripts are only supported on Mac OS X and Windows.
+
 ## Documentation
 
-View the developer documentation on FireShell for further reading and learning. You may need to install a few assets before you can get started, such as Node, Git, Grunt.
+View the developer [documentation](docs/DOCUMENTATION.md) on FireShell for further reading and learning. You may need to install a few assets before you can get started, such as Node, Git, Grunt.
 
 ## Features
 
@@ -86,6 +90,7 @@ Projected roadmap for FireShell and it's subsets builds.
 * AngularJS FireShell build with MVC scaffolding
 * Static HTML Includes FireShell build (emulates server-side includes)
 * PHP FireShell spawning a `localhost` with relevant includes
+* Create a Yeoman generator for FireShell
 
 ## Contributors
 
