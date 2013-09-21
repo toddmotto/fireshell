@@ -19,7 +19,7 @@ Get started with FireShell:
 
 ## Documentation
 
-View the developer documentation on FireShell for further reading and learning.
+View the developer documentation on FireShell for further reading and learning. You may need to install a few assets before you can get started, such as Node, Git, Grunt.
 
 ## Features
 
@@ -32,7 +32,7 @@ Here are some of the main features of FireShell:
 * Includes Modernizr and HTML5 Shiv
 * Google Universal Analytics snippet
 * Open source workflow with Grunt.js running on Node.js
-* A grunt.command file for double-click command-line execution
+* Two `.command` (Mac OS X) and `.bat` (Windows) files for double-click command-line execution of FireShell
 * Automatic Grunt dependency installation, directory relocation and grunt tasks
 * Dynamically appended copyright for JS/CSS
 * Livereloading the browser and file injection upon changes
@@ -68,7 +68,9 @@ Here are some of the main features of FireShell:
 │       └── style.scss
 ├── docs
 ├── grunt-build.command
+├── grunt-build.bat
 ├── grunt-dev.command
+├── grunt-dev.bat
 ├── package.json
 ├── README.md
 ├── .editorconfig
@@ -76,6 +78,18 @@ Here are some of the main features of FireShell:
 ├── .jshintrc
 └── .travis.yml
 ````
+
+## Roadmap
+
+Projected roadmap for FireShell and it's subsets builds.
+
+* AngularJS FireShell build with MVC scaffolding
+* Static HTML Includes FireShell build (emulates server-side includes)
+* PHP FireShell spawning a `localhost` with relevant includes
+
+## Contributors
+
+FireShell is maintained by [Todd Motto](//github.com/toddmotto) and it's contributors; [Jean-Philippe Sirois](//github.com/jpsirois), [Noah Bass](//github.com/noahbass), [Bernard Chhun](//github.com/bchhun), [Chris Missal](//github.com/ChrisMissal), [Mihai Ionut Vilcu](//github.com/ionutvmi), [Octavio Amuchastegui](//github.com/octavioamu).
 
 ## License
 
