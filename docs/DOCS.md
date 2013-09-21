@@ -46,6 +46,7 @@ One of the main features of FireShell, setup with dynamic variable names to make
 project: {
   src: 'src',
   app: 'app',
+  assets: '<%= project.app %>/assets',
   css: [
     '<%= project.src %>/scss/style.scss'
   ],
@@ -64,6 +65,7 @@ For instance, if you're using a bunch of jQuery plugins, we can import a `/plugi
 project: {
   src: 'src',
   app: 'app',
+  assets: '<%= project.app %>/assets',
   css: [
     '<%= project.src %>/scss/style.scss'
   ],
