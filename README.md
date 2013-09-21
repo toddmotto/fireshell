@@ -49,10 +49,12 @@ Here are some of the main features of FireShell:
 
 ````
 ├── app
-│   ├── css
-│   ├── fonts
-│   ├── img
-│   ├── js
+│   ├── apple-touch-icon-precomposed.png
+│   ├── assets
+│   │   ├── css
+│   │   ├── fonts
+│   │   ├── img
+│   │   └── js
 │   ├── favicon.ico
 │   └── index.html
 ├── src
