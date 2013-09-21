@@ -23,7 +23,7 @@ FireShell runs on both Mac OS X, Linux and Windows. Automated command-line scrip
 
 ## Documentation
 
-View the developer [documentation](docs/DOCUMENTATION.md) on FireShell for further reading and learning. You may need to install a few assets before you can get started, such as Node, Git, Grunt.
+Read the developer [documentation](//github.com/toddmotto/fireshell/blob/master/docs/DOCS.md) on FireShell for further reading and learning. You may need to install a few assets before you can get started, such as Node, Git, Grunt.
 
 ## Features
 
@@ -91,6 +91,7 @@ Projected roadmap for FireShell and it's subsets builds.
 * Static HTML Includes FireShell build (emulates server-side includes)
 * PHP FireShell spawning a `localhost` with relevant includes
 * Create a Yeoman generator for FireShell
+* Add [grunt-autoprefixer](//github.com/nDmitry/grunt-autoprefixer) in place of `vendor` Sass mixin.
 
 ## Contributors
 
