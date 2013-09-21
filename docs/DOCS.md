@@ -10,7 +10,7 @@ FireShell utilises open source components running on the Terminal/command-line f
 5. The `grunt-dev.command` should install all the dependencies, which you can check back to see in your folder, and then run the commands associated with FireShell, and automatically open a new FireShell project running on `localhost:9000`.
 6. From now on, just double-click the `grunt-dev.command` file to automatically run FireShell's Grunt tasks, it's setup using the following script to automatically `cd` you into the correct directory and run the necessary commands:
 
-````
+````sh
 path=`dirname $0`
 cd $path
 if [ ! -d node_modules ];then
@@ -39,7 +39,7 @@ FireShell ships with a preconfigured build task for Grunt, just fire up the `gru
 ### Gruntfile.js
 One of the main features of FireShell, setup with dynamic variable names to make it even easier to use, here's where you'll need to edit to add more scripts to be run through Grunt:
 
-````
+````js
 /**
  * Set project info
  */
@@ -58,7 +58,7 @@ project: {
 
 For instance, if you're using a bunch of jQuery plugins, we can import a `/plugins/` folder into FireShell. It shouldn't matter the order you import them in the folder so we can use * to import all, though the order you specify the array will be the order of scripts import, you'll likely want to include your custom `scripts.js` last if you're instantiating plugins as they'll need to be loaded first:
 
-````
+````js
 /**
  * Set project info
  */
@@ -84,7 +84,7 @@ All Grunt dependencies inside FireShell's `Gruntfile.js` come with the URI to th
 ### Dynamic copyright/project banners
 The package.json includes the dependencies for the project as well as information about the project. Entries here will be dynamically appended to the top of generated `.css` and `.js` files, by default it ships with FireShell's banner:
 
-````
+````js
 /*!
  * FireShell
  * Fiercely quick and opinionated front-ends
@@ -98,7 +98,7 @@ The package.json includes the dependencies for the project as well as informatio
 ### Livereloading
 Grunt's Livereload will inject the following script into your HTML for you (not included when you deploy):
 
-````
+````html
 <!-- livereload script -->
 <script type="text/javascript">document.write('<script src="http://'
  + (location.host || 'localhost').split(':')[0]
@@ -113,7 +113,7 @@ If you're including more Grunt tasks in your project, remember to use the `npm i
 
 Add new tasks to either the default `grunt` task or `grunt build` task at the end of the `Gruntfile.js`:
 
-````
+````js
 /**
  * Default task
  * Run `grunt` on the command line
@@ -131,7 +131,7 @@ grunt.registerTask('default', [
 ## JavaScript
 FireShell comes with a single `scripts.js` to get you started, of course if you're building an AngularJS project or other type you're going to need to customise the structure, but this gets you started. The generic scripts file ships with an immediately-invoked function expression (IIFE):
 
-````
+````js
 (function ($, window, document, undefined) {
   'use strict';
   // FireShell
@@ -140,7 +140,7 @@ FireShell comes with a single `scripts.js` to get you started, of course if you'
 
 This helps with all your minification and not polluting with global variables, for instance before minification you've got very readable code and variable names (including the `document` and `window` objects):
 
-````
+````js
 (function ($, window, document, undefined) {
   'use strict';
   var test = document.createElement('script');
@@ -149,7 +149,7 @@ This helps with all your minification and not polluting with global variables, f
 
 When minified will be as follows, reducing many instances of the :
 
-````
+````js
 (function (a,b,c,d) {
   'use strict';
   // Also not global
