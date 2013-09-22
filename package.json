@@ -16,9 +16,9 @@
     "grunt-contrib-sass": "~0.5.0",
     "grunt-contrib-uglify": "~0.2.0",
     "grunt-contrib-connect": "~0.3.0",
+    "grunt-contrib-livereload": "~0.1.2",
     "grunt-contrib-jshint": "~0.4.3",
     "grunt-contrib-watch": "~0.4.4",
-    "connect-livereload": "~0.2.0",
     "grunt-open": "~0.2.0",
     "matchdep": "~0.1.2"
   }
