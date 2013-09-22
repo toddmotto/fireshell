@@ -204,7 +204,8 @@ module.exports = function (grunt) {
     'sass:dev',
     'jshint',
     'concat:dev',
-    'connect:livereload',
+    'connect',
+    'livereload',
     'open',
     'watch'
   ]);
