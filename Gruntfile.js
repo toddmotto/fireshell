@@ -131,6 +131,18 @@ module.exports = function (grunt) {
     },
 
     /**
+     * Clean files and folders
+     * https://github.com/gruntjs/grunt-contrib-clean
+     * Remove files by demand
+     */
+    clean: {
+      dist: [
+        '<%= project.app %>/css/style.unprefixed.css',
+        '<%= project.app %>/css/style.prefixed.css'
+      ]
+    },
+
+    /**
      * Compile Sass/SCSS files
      * https://github.com/gruntjs/grunt-contrib-sass
      * Compiles all Sass/SCSS files and appends project banner
@@ -142,16 +154,57 @@ module.exports = function (grunt) {
           banner: '<%= tag.banner %>'
         },
         files: {
-          '<%= project.app %>/css/style.min.css': '<%= project.css %>'
+          '<%= project.app %>/css/style.unprefixed.css': '<%= project.css %>'
         }
       },
       dist: {
         options: {
-          style: 'compressed',
+          style: 'expanded'
+        },
+        files: {
+          '<%= project.app %>/css/style.unprefixed.css': '<%= project.css %>'
+        }
+      }
+    },
+
+    /**
+     * Adds vendor prefixes if need automatcily
+     * https://github.com/nDmitry/grunt-autoprefixer
+     */
+    autoprefixer: {
+      options: {
+        browsers: [
+          'last 2 version',
+          // 'safari 6',
+          // 'ie 9',
+          // 'opera 12.1',
+          // 'ios 6',
+          // 'android 4'
+        ]
+      },
+      dev: {
+        files: {
+          '<%= project.app %>/css/style.min.css': ['<%= project.app %>/css/style.unprefixed.css']
+        }
+      },
+      dist: {
+        files: {
+          '<%= project.app %>/css/style.prefixed.css': ['<%= project.app %>/css/style.unprefixed.css']
+        }
+      }
+    },
+
+    /**
+     * Does CSS minification
+     * https://github.com/gruntjs/grunt-contrib-cssmin
+     */
+    cssmin: {
+      dist: {
+        options: {
           banner: '<%= tag.banner %>'
         },
         files: {
-          '<%= project.app %>/css/style.min.css': '<%= project.css %>'
+          '<%= project.app %>/css/style.min.css': ['<%= project.app %>/css/style.prefixed.css']
         }
       }
     },
@@ -179,7 +232,10 @@ module.exports = function (grunt) {
       },
       sass: {
         files: '<%= project.src %>/scss/{,*/}*.{scss,sass}',
-        tasks: ['sass:dev']
+        tasks: ['sass:dev', 'autoprefixer:dev']
+      },
+      css: {
+        files: '<%= project.app %>/css/*.css'
       },
       livereload: {
         options: {
@@ -193,6 +249,7 @@ module.exports = function (grunt) {
         ]
       }
     }
+
   });
 
   /**
@@ -201,6 +258,7 @@ module.exports = function (grunt) {
    */
   grunt.registerTask('default', [
     'sass:dev',
+    'autoprefixer:dev',
     'jshint',
     'concat:dev',
     'connect:livereload',
@@ -215,6 +273,9 @@ module.exports = function (grunt) {
    */
   grunt.registerTask('build', [
     'sass:dist',
+    'autoprefixer:dist',
+    'cssmin:dist',
+    'clean:dist',
     'jshint',
     'uglify'
   ]);
