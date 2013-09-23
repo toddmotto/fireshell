@@ -87,6 +87,7 @@ Here are some of the main features of FireShell:
 
 Projected roadmap for FireShell and it's subsets builds.
 
+* LESS.css variant (`less` dir inside `src`), keeping Sass as default but providing Gruntfile.js setup
 * AngularJS FireShell build with MVC scaffolding
 * Static HTML Includes FireShell build (emulates server-side includes)
 * PHP FireShell spawning a `localhost` with relevant includes
