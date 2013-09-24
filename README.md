@@ -90,6 +90,7 @@ Projected roadmap for FireShell and it's subsets builds.
 * Integrate Grunt-init to allow for initial project naming (for dynamic CSS/JS banners)
 * LESS.css variant (`less` dir inside `src`), keeping Sass as default but providing Gruntfile.js setup
 * AngularJS FireShell build with MVC scaffolding
+* Bower as package manager
 * Static HTML Includes FireShell build (emulates server-side includes)
 * PHP FireShell spawning a `localhost` with relevant includes
 * Create a Yeoman generator for FireShell
