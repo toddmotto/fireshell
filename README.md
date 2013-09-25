@@ -15,7 +15,7 @@ Get started with FireShell:
 1. Download the latest stable release from
    [getfireshell.com](http://getfireshell.com).
 2. Clone the git repo — `git clone
-   https://github.com/toddmotto/fireshell.git`
+   https://github.com/toddmotto/fireshell.git` and checkout the tagged release you need
 
 ## Platform support
 
