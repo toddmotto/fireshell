@@ -270,11 +270,8 @@ module.exports = function (grunt) {
    */
   grunt.registerTask('default', [
     'sass:dev',
-<<<<<<< HEAD
     'bower:dev',
-=======
     'autoprefixer:dev',
->>>>>>> 0a11b1251bc8bbf68a354202cd0eb042048a85a2
     'jshint',
     'concat:dev',
     'connect:livereload',
@@ -289,13 +286,10 @@ module.exports = function (grunt) {
    */
   grunt.registerTask('build', [
     'sass:dist',
-<<<<<<< HEAD
     'bower:dist',
-=======
     'autoprefixer:dist',
     'cssmin:dist',
     'clean:dist',
->>>>>>> 0a11b1251bc8bbf68a354202cd0eb042048a85a2
     'jshint',
     'uglify'
   ]);
