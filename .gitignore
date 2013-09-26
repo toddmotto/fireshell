@@ -7,4 +7,6 @@ node_modules
 .tmp
 .sass-cache
 style.min.css
+style.unprefixed.css
+style.prefixed.css
 scripts.min.js
