@@ -134,7 +134,7 @@ module.exports = function (grunt) {
      */
     uglify: {
       options: {
-        banner: "<%= tag.banner %>"
+        banner: '<%= tag.banner %>'
       },
       dist: {
         files: {
