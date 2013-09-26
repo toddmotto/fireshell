@@ -213,7 +213,7 @@ module.exports = function (grunt) {
     },
 
     /**
-     * Install and copy Bower files
+     * Build bower components
      * https://github.com/yatskevich/grunt-bower-task
      */
     bower: {
