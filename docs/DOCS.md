@@ -193,3 +193,7 @@ Ignores minified and generated files, this is best for working in teams to avoid
 
 ### .travis.yml
 This is used on [travis-ci.org](http://travis-ci.org) for continuous integration tests, which monitor the FireShell build.
+
+## Platform support
+
+FireShell runs on both Mac OS X, Linux and Windows. Automated command-line scripts are only supported on Mac OS X and Windows.
