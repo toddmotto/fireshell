@@ -83,7 +83,7 @@ Here are some of the main features of FireShell:
 
 Steps to contributing:
 
-* Create your feature branch and commit changes and push to origin
+* Create your feature branch, commit changes and push to origin
 * Submit a Pull Request with details on your feature branch
 
 Guidelines:
