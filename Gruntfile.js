@@ -158,6 +158,19 @@ module.exports = function (grunt) {
     },
 
     /**
+     * Install and copy Bower files
+     * https://github.com/yatskevich/grunt-bower-task
+     */
+    bower: {
+      dev: {
+        dest: '<%= project.assets %>/components/'
+      },
+      dist: {
+        dest: '<%= project.assets %>/components/'
+      }
+    },
+
+    /**
      * Opens the web server in the browser
      * https://github.com/jsoverson/grunt-open
      */
@@ -202,6 +215,7 @@ module.exports = function (grunt) {
    */
   grunt.registerTask('default', [
     'sass:dev',
+    'bower:dev',
     'jshint',
     'concat:dev',
     'connect:livereload',
@@ -216,6 +230,7 @@ module.exports = function (grunt) {
    */
   grunt.registerTask('build', [
     'sass:dist',
+    'bower:dist',
     'jshint',
     'uglify'
   ]);
