@@ -26,5 +26,8 @@
     "connect-livereload": "~0.2.0",
     "grunt-open": "~0.2.0",
     "matchdep": "~0.1.2"
+  },
+  "scripts": {
+    "postinstall" : "node_modules/.bin/bower install"
   }
 }
