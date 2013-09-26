@@ -155,7 +155,11 @@ module.exports = function (grunt) {
           banner: '<%= tag.banner %>'
         },
         files: {
-          '<%= project.assets %>/css/style.unprefixed.css': '<%= project.css %>'
+          '<%= project.assets %>/css/style.unprefixed.css':
+          [
+            '<%= project.src %>/components/normalize-css/normalize.css',
+            '<%= project.css %>'
+          ]
         }
       },
       dist: {
@@ -163,7 +167,11 @@ module.exports = function (grunt) {
           style: 'expanded'
         },
         files: {
-          '<%= project.assets %>/css/style.unprefixed.css': '<%= project.css %>'
+          '<%= project.assets %>/css/style.unprefixed.css':
+          [
+            '<%= project.src %>/components/normalize-css/normalize.css',
+            '<%= project.css %>'
+          ]
         }
       }
     },
