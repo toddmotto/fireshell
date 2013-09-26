@@ -17,10 +17,6 @@ Get started with FireShell:
 2. Clone the git repo — `git clone
    https://github.com/toddmotto/fireshell.git` and checkout the tagged release you need
 
-## Platform support
-
-FireShell runs on both Mac OS X, Linux and Windows. Automated command-line scripts are only supported on Mac OS X and Windows.
-
 ## Documentation
 
 Read the developer [documentation](//github.com/toddmotto/fireshell/blob/master/docs/DOCS.md) on FireShell for further reading and learning. You may need to install a few assets before you can get started, such as Node, Git, Grunt.
@@ -83,6 +79,19 @@ Here are some of the main features of FireShell:
 └── .travis.yml
 ````
 
+## Contributing
+
+Steps to contributing:
+
+* Create your feature branch and commit changes and push to origin
+* Submit a Pull Request with details on your feature branch
+
+Guidelines:
+* Non-trivial changes should be discussed in an issue first
+* Do not create issues for support reasons, use [Stack Overflow](http://stackoverflow.com)
+
+FireShell is maintained by [Todd Motto](//github.com/toddmotto) and it's contributors; [Jean-Philippe Sirois](//github.com/jpsirois), [Noah Bass](//github.com/noahbass), [Bernard Chhun](//github.com/bchhun), [Chris Missal](//github.com/ChrisMissal), [Mihai Ionut Vilcu](//github.com/ionutvmi), [Octavio Amuchastegui](//github.com/octavioamu).
+
 ## Roadmap
 
 Projected roadmap for FireShell and it's subsets builds.
@@ -94,11 +103,6 @@ Projected roadmap for FireShell and it's subsets builds.
 * Static HTML Includes FireShell build (emulates server-side includes)
 * PHP FireShell spawning a `localhost` with relevant includes
 * Create a Yeoman generator for FireShell
-* Add [grunt-autoprefixer](//github.com/nDmitry/grunt-autoprefixer) in place of `vendor` Sass mixin.
-
-## Contributors
-
-FireShell is maintained by [Todd Motto](//github.com/toddmotto) and it's contributors; [Jean-Philippe Sirois](//github.com/jpsirois), [Noah Bass](//github.com/noahbass), [Bernard Chhun](//github.com/bchhun), [Chris Missal](//github.com/ChrisMissal), [Mihai Ionut Vilcu](//github.com/ionutvmi), [Octavio Amuchastegui](//github.com/octavioamu).
 
 ## License
 
