@@ -202,6 +202,14 @@ module.exports = function (grunt) {
      * https://github.com/gruntjs/grunt-contrib-cssmin
      */
     cssmin: {
+      dev: {
+        options: {
+          banner: '<%= tag.banner %>'
+        },
+        files: {
+          '<%= project.assets %>/css/style.min.css': ['<%= project.assets %>/css/style.unprefixed.css']
+        }
+      },
       dist: {
         options: {
           banner: '<%= tag.banner %>'
@@ -248,7 +256,7 @@ module.exports = function (grunt) {
       },
       sass: {
         files: '<%= project.src %>/scss/{,*/}*.{scss,sass}',
-        tasks: ['sass:dev']
+        tasks: ['sass:dev', 'cssmin:dev']
       },
       livereload: {
         options: {
@@ -270,6 +278,7 @@ module.exports = function (grunt) {
    */
   grunt.registerTask('default', [
     'sass:dev',
+    'cssmin:dev',
     'bower:dev',
     'autoprefixer:dev',
     'jshint',
