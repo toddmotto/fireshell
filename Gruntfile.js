@@ -256,7 +256,7 @@ module.exports = function (grunt) {
       },
       sass: {
         files: '<%= project.src %>/scss/{,*/}*.{scss,sass}',
-        tasks: ['sass:dev', 'cssmin:dev']
+        tasks: ['sass:dev', 'cssmin:dev', 'autoprefixer:dev']
       },
       livereload: {
         options: {
