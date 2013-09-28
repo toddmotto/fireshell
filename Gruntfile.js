@@ -103,7 +103,10 @@ module.exports = function (grunt) {
      * Manage the options inside .jshintrc file
      */
     jshint: {
-      files: ['src/js/*.js'],
+      files: [
+        'src/js/*.js',
+        'Gruntfile.js'
+      ],
       options: {
         jshintrc: '.jshintrc'
       }
