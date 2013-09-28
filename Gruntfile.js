@@ -207,7 +207,10 @@ module.exports = function (grunt) {
           banner: '<%= tag.banner %>'
         },
         files: {
-          '<%= project.assets %>/css/style.min.css': ['<%= project.assets %>/css/style.unprefixed.css']
+          '<%= project.assets %>/css/style.min.css': [
+            '<%= project.src %>/components/normalize-css/normalize.css',
+            '<%= project.assets %>/css/style.unprefixed.css'
+          ]
         }
       },
       dist: {
@@ -215,7 +218,10 @@ module.exports = function (grunt) {
           banner: '<%= tag.banner %>'
         },
         files: {
-          '<%= project.assets %>/css/style.min.css': ['<%= project.assets %>/css/style.prefixed.css']
+          '<%= project.assets %>/css/style.min.css': [
+            '<%= project.src %>/components/normalize-css/normalize.css',
+            '<%= project.assets %>/css/style.prefixed.css'
+          ]
         }
       }
     },
