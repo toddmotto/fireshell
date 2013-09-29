@@ -1,5 +1,4 @@
-path=`dirname $0`
-cd $path
+cd "$(dirname "$0")"
 if [ ! -d node_modules ];then
     sudo npm install
 fi
