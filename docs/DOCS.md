@@ -11,8 +11,7 @@ FireShell utilises open source components running on the Terminal/command-line f
 6. From now on, just double-click the `grunt-dev.command` file to automatically run FireShell's Grunt tasks, it's setup using the following script to automatically `cd` you into the correct directory and run the necessary commands:
 
 ````sh
-path=`dirname $0`
-cd $path
+cd "$(dirname "$0")"
 if [ ! -d node_modules ];then
     sudo npm install
 fi
@@ -120,6 +119,9 @@ Add new tasks to either the default `grunt` task or `grunt build` task at the en
  */
 grunt.registerTask('default', [
   'sass:dev',
+  'cssmin:dev',
+  'bower:dev',
+  'autoprefixer:dev',
   'jshint',
   'concat:dev',
   'connect:livereload',
