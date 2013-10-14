@@ -168,6 +168,24 @@ module.exports = function (grunt) {
     },
 
     /**
+     * Minifies PNG and JPG images
+     * https://github.com/gruntjs/grunt-contrib-imagemin
+    */
+    imagemin:{
+      static: {                          
+        options: {                       
+          optimizationLevel: 3
+        },
+        files: [{
+          expand: true,                     // Enable dynamic expansion
+          cwd: '<%= project.src %>/images', // Src matches are relative to this path
+          src: ['**/*.{png,jpg,gif}'],      // Actual patterns to match
+          dest: '<%= project.assets %>/img/'// Destination path prefix
+        }]
+      }
+    },
+
+    /**
      * Runs tasks against changed watched files
      * https://github.com/gruntjs/grunt-contrib-watch
      * Watching development files and run concat/compile tasks
@@ -206,6 +224,7 @@ module.exports = function (grunt) {
     'concat:dev',
     'connect:livereload',
     'open',
+    'imagemin',
     'watch'
   ]);
 
@@ -217,6 +236,7 @@ module.exports = function (grunt) {
   grunt.registerTask('build', [
     'sass:dist',
     'jshint',
+    'imagemin',
     'uglify'
   ]);
 
