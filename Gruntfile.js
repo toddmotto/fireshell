@@ -224,7 +224,6 @@ module.exports = function (grunt) {
     'concat:dev',
     'connect:livereload',
     'open',
-    'imagemin',
     'watch'
   ]);
 
