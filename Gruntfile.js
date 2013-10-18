@@ -173,7 +173,7 @@ module.exports = function (grunt) {
 
     /**
      * Autoprefixer
-     * Adds vendor prefixes if need automatically
+     * Adds vendor prefixes automatically
      * https://github.com/nDmitry/grunt-autoprefixer
      */
     autoprefixer: {
