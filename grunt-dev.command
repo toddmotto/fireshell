@@ -3,10 +3,22 @@ if [ ! -d node_modules ];then
     sudo npm install
 fi
 
-if [ ! -d src/scss/bourbon ];then 
-  echo "Searching gem bourbon ..."
-  gem install bourbon;
-  bourbon install --path src/scss/
+if gem list --local | grep bourbon ; then 
+  
+  echo "bourbon already installed" ; 
+
+  if [ ! -d src/scss/bourbon ];then 
+    bourbon install --path src/scss/
+  fi
+
+else 
+  
+  gem install bourbon ; 
+
+  if [ ! -d src/scss/bourbon ];then 
+    bourbon install --path src/scss/
+  fi
+
 fi
 
-grunt
+grunt build
