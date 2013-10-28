@@ -1,2 +1,2 @@
 # FireShell
-Source code for [getfireshell.com](http://getfireshell.com).
+Source code for [getfireshell.com](http://getfireshell.com)
