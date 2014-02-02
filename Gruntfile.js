@@ -79,7 +79,7 @@ module.exports = function (grunt) {
       livereload: {
         options: {
           middleware: function (connect) {
-            return [lrSnippet, mountFolder(connect, 'app')];
+            return [lrSnippet, mountFolder(connect, grunt.config('project.app'))];
           }
         }
       }
