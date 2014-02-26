@@ -4,11 +4,6 @@
     color: $selection-c;
     text-shadow: $selection-ts;
   }
-  ::-webkit-selection{
-    background: $selection-bg;
-    color: $selection-c;
-    text-shadow: $selection-ts;
-  }
   ::selection{
     background: $selection-bg;
     color: $selection-c;
