@@ -1,15 +1,1 @@
-::selection{
-  background: #333;
-  color: #fff;
-  text-shadow: none;
-}
-::-moz-selection{
-  background: #333;
-  color: #fff;
-  text-shadow: none;
-}
-::-webkit-selection{
-  background: #333;
-  color: #fff;
-  text-shadow: none;
-}
+@include selection($selection-bg: #333, $selection-c: #fff, $selection-ts: none);
