@@ -287,9 +287,9 @@ module.exports = function (grunt) {
    */
   grunt.registerTask('default', [
     'sass:dev',
-    'cssmin:dev',
     'bower:dev',
     'autoprefixer:dev',
+    'cssmin:dev',
     'jshint',
     'concat:dev',
     'connect:livereload',
