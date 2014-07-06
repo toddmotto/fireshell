@@ -1,10 +1,11 @@
-# FireShell [![Build Status](https://travis-ci.org/toddmotto/fireshell.png)](https://travis-ci.org/toddmotto/fireshell)
+# FireShell [![Build Status](https://travis-ci.org/toddmotto/fireshell.svg)](https://travis-ci.org/toddmotto/fireshell)
 
 Fiercely quick front-end boilerplate and workflows.
 
 The opinionated FireShell framework. Built for the modern developer. For teams and the individual, encouraging a better workflow. JavaScript task running, build processes, autominification and file concatenation, wrapped with an enhanced HTML5 boilerplated framework.
 
 * Source: [github.com/toddmotto/fireshell](http://github.com/toddmotto/fireshell)
+* Author: [Todd Motto](http://toddmotto.com)
 * Homepage: [getfireshell.com](http://getfireshell.com)
 * Twitter: [@getfireshell](http://twitter.com/getfireshell)
 
