@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <title>FireShell by @toddmotto</title>
 
-    <base href="/app/">
+    <base href="http://getfireshell.com/app/">
 
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="description" content="">
@@ -16,6 +16,18 @@
     <link href="//disqus.com" rel="dns-prefetch">
 
     <link href="css/style.min.css" rel="stylesheet">
+    <style>
+      #carbonads-container {
+        position: fixed;
+        right: 0;
+        bottom: 0;
+      }
+      @media screen only (max-width: 800px) {
+        position: static;
+        width: 100%;
+        text-align: center;
+      }
+    </style>
 
     <script src="js/vendor/modernizr-2.6.2.min.js"></script>
 
@@ -193,11 +205,26 @@
         &copy; 2013 FireShell. MIT Licensed.
       </div>
     </footer>
+    
+    <div id="carbonads-container">
+      <div class="carbonad">
+        <div id="azcarbon"></div>
+      </div>
+    </div>
 
     <script src="js/scripts.min.js"></script>
+    
+    <script>
+    (function (a, b) {
+      var z = a.createElement(b);
+      z.async = z.src = '//engine.carbonads.com/z/51752/azcarbon_2_1_0_VERTDARK';
+      var s = a.getElementsByTagName(b)[0];
+      s.parentNode.insertBefore(z, s);
+    })(document, 'script');
+    </script>
 
     <script>
-      (function(f,i,r,e,s,h,l){i['GoogleAnalyticsObject']=s;f[s]=f[s]||function(){
+      (function(f,i,r,e,s,h,l){i.GoogleAnalyticsObject=s;f[s]=f[s]||function(){
       (f[s].q=f[s].q||[]).push(arguments)},f[s].l=1*new Date();h=i.createElement(r),
       l=i.getElementsByTagName(r)[0];h.async=1;h.src=e;l.parentNode.insertBefore(h,l)
       })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
