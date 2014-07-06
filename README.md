@@ -1,4 +1,4 @@
-# FireShell [![Build Status](https://travis-ci.org/toddmotto/fireshell.svg)](https://travis-ci.org/toddmotto/fireshell)
+# FireShell
 
 Fiercely quick front-end boilerplate and workflows.
 
