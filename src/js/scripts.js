@@ -1,9 +1,14 @@
-(function ($, window, document, undefined) {
+;(function(window, document, undefined){
 
-  'use strict';
+    'use strict';
 
-  $(function () {
-    // FireShell
-  });
+    /**
+     * Name-spacing
+     */
+    window.Site = {
+        basePath: document.body.getAttribute('data-base-url'),
+        userAgent: navigator.userAgent,
+        platform: navigator.platform
+    };
 
-})(jQuery, window, document);
+}(window, document));

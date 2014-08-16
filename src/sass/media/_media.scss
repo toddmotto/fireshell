@@ -1,0 +1,16 @@
+@media only screen and (min-width:320px) {
+
+}
+
+/**
+ * Retina.
+ * Currently only set to 'double' retina, meaning, assets only have to be twice the normal size,
+ * @reference http://www.brettjankord.com/2012/11/28/cross-browser-retinahigh-resolution-media-queries/
+ */
+@media  (-webkit-min-device-pixel-ratio: 2),
+        (min--moz-min-device-pixel-ratio: 2),
+        (min-device-pixel-ratio: 2),
+        (min-resolution: 192dpi),
+        (min-resolution: 2dppx) {
+
+}

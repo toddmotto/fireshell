@@ -1,0 +1,18 @@
+::-webkit-input-placeholder {}
+:-moz-placeholder {}
+
+::-webkit-validation-bubble-message { padding: 40px; }
+
+input {
+    &:required {}
+    &:optional {}
+    &:valid {}
+    &:invalid {}
+    &:default {}
+    &:focus {}
+
+    &:enabled {}
+    &:disabled {}
+    &:checked {}
+    &:indeterminate {} // un-selected radio buttons
+}

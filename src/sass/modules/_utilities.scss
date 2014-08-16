@@ -1,0 +1,41 @@
+/**
+ * Clearfix
+ */
+%clear {
+    content: ' ';
+    display: table;
+}
+.u-cf {
+    *zoom: 1;
+    &:before {
+        @extend %clear;
+    }
+    &:after {
+        @extend %clear;
+        line-height: 0;
+        clear: both;
+    }
+}
+
+/**
+ * Responsive Images
+ */
+%ri {
+    > img { max-width: 100%; }
+}
+.u-ri {
+    @extend %ri;
+    } // responsive image
+
+/**
+ * Image Replacement - HTML5BP
+ */
+%ir {
+    border: 0;
+    font: 0/0 a;
+    text-shadow: none;
+    color: transparent;
+}
+.u-ir {
+    @extend %ir;
+}

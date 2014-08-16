@@ -1,0 +1,39 @@
+body {
+    font: 300 13px/1.6 'Helvetica Neue', Helvetica, Arial;
+    background: #fff;
+    color: #444;
+}
+
+* { box-sizing: border-box; }
+
+::-moz-selection {
+    background: $selection-bg;
+    color: $selection-c;
+    text-shadow: $selection-ts;
+}
+::selection {
+    background: $selection-bg;
+    color: $selection-c;
+    text-shadow: $selection-ts;
+}
+a::-moz-selection {}
+a::selection {}
+
+html, body {
+    -webkit-font-smoothing: antialiased;
+    font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+}
+html {
+    font-size: 62.5%;
+    -ms-touch-action: manipulation;
+    touch-action: manipulation;
+}
+body {
+    font-family: $ff;
+    background-color: $c-bg;
+    color: $c-text;
+    @include font-size(1.4);
+    font-weight: 300;
+    line-height: 1.6;
+}

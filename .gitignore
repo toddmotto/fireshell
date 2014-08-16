@@ -1,13 +1,3 @@
-# FireShell
-# http://getfireshell.com
-# @author Todd Motto
-
-## FireShell
-style.min.css
-style.unprefixed.css
-style.prefixed.css
-scripts.min.js
-
 ## Node.js
 lib-cov
 *.seed
@@ -19,12 +9,12 @@ lib-cov
 *.gz
 pids
 logs
-results
+# results
 npm-debug.log
 node_modules
 
 ## Bower
-src/components
+bower_components
 
 ## Sass
 .sass-cache
@@ -43,3 +33,6 @@ Thumbs.db
 ehthumbs.db
 Desktop.ini
 $RECYCLE.BIN/
+
+## Others
+temp
