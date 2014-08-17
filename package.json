@@ -21,6 +21,7 @@
     "grunt-modernizr": "^0.5.2",
     "grunt-contrib-clean": "~0.5.0",
     "grunt-contrib-imagemin": "~0.4.0",
-    "matchdep": "~0.1.2"
+    "matchdep": "~0.1.2",
+    "grunt-contrib-copy": "^0.5.0"
   }
 }

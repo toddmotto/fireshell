@@ -155,13 +155,37 @@ module.exports = function (grunt) {
         },
 
         /**
+         * Copy required application files
+         */
+        copy: {
+            dist: {
+                files: {}
+            }
+        },
+
+        modernizr: {
+            dist: {
+                devFile : '',
+                outputFile : "<%= project.assets %>/js/modernizr.build.js",
+                parseFiles : false,
+                uglify: true,
+                extra : {
+                    load : false,
+                },
+                tests : [
+                    'touch'
+                ]
+            }
+        },
+
+        /**
          * Watching development files and run concat/compile tasks
          */
         watch: {
             concat: {
                 files: '<%= project.src %>/js/{,*/}*.js',
                 tasks: [
-                    'concat:dev'
+                    'uglify:dev'
                 ]
             },
             sass: {
@@ -182,6 +206,7 @@ module.exports = function (grunt) {
         'sass:dev',
         'autoprefixer:dev',
         'uglify:dev',
+        'modernizr',
         'watch'
     ]);
 
@@ -199,7 +224,8 @@ module.exports = function (grunt) {
      * Javascript Task
      */
     grunt.registerTask('js', [
-        'uglify:dev'
+        'uglify:dev',
+        'modernizr'
     ]);
 
     /**
@@ -209,10 +235,13 @@ module.exports = function (grunt) {
      */
     grunt.registerTask('build', [
         'clean:dist',
+        // CSS
         'sass:dist',
         'autoprefixer:dist',
         'cssmin:dist',
-        'uglify:dist'
+        // JS
+        'uglify:dist',
+        'modernizr'
     ]);
 
 };
