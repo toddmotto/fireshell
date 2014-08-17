@@ -1,0 +1,14 @@
+body,
+html {
+    height: 100%;
+}
+.wrapper {
+    display: table;
+    height: 100%;
+    width: 100%;
+}
+.logo {
+    display: table-cell;
+    vertical-align: middle;
+    text-align: center;
+}

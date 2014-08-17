@@ -50,7 +50,9 @@ module.exports = function (grunt) {
         clean: {
             dist: [
                 '<%= project.assets %>/css/*.css',
-                '<%= project.assets %>/js/*.js'
+                '<%= project.assets %>/js/*.js',
+                '<%= project.assets %>/img/*/**',
+                '<%= project.assets %>/img/{,*/,**/}*.{jpg,png,gif,svg}'
             ]
         },
 
@@ -158,8 +160,18 @@ module.exports = function (grunt) {
          * Copy required application files
          */
         copy: {
-            dist: {
-                files: {}
+            img: {
+                files: [
+                    {
+                        expand: true,
+                        flatten: false,
+                        cwd: '<%= project.src %>/img/',
+                        src: [
+                            '{,*/,*/*/}*.{jpg,png,gif,svg}'
+                        ],
+                        dest: '<%= project.assets %>/img',
+                    }
+                ]
             }
         },
 
@@ -207,6 +219,7 @@ module.exports = function (grunt) {
         'autoprefixer:dev',
         'uglify:dev',
         'modernizr',
+        'copy:img',
         'watch'
     ]);
 
@@ -235,11 +248,13 @@ module.exports = function (grunt) {
      */
     grunt.registerTask('build', [
         'clean:dist',
+        // Images
+        'copy:img',
         // CSS
         'sass:dist',
         'autoprefixer:dist',
         'cssmin:dist',
-        // JS
+        // JavaScript
         'uglify:dist',
         'modernizr'
     ]);
