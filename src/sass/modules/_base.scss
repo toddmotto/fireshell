@@ -1,20 +1,12 @@
-body {
-    font: 300 13px/1.6 'Helvetica Neue', Helvetica, Arial;
-    background: #fff;
-    color: #444;
-}
-
 * { box-sizing: border-box; }
 
 ::-moz-selection {
-    background: $selection-bg;
-    color: $selection-c;
-    text-shadow: $selection-ts;
+    background: $c-text;
+    color: $c-bg;
 }
 ::selection {
-    background: $selection-bg;
-    color: $selection-c;
-    text-shadow: $selection-ts;
+    background: $c-text;
+    color: $c-bg;
 }
 a::-moz-selection {}
 a::selection {}

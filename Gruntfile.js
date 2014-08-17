@@ -37,8 +37,7 @@ module.exports = function (grunt) {
          */
         tag: {
           banner:   '/*!\n' +
-                    ' * <%= pkg.name %>\n' +
-                    ' * <%= pkg.url %>\n' +
+                    ' * <%= pkg.name %> - <%= pkg.url %>\n' +
                     ' * @author <%= pkg.author %>\n' +
                     ' * @version <%= pkg.version %>\n' +
                     ' * Copyright <%= pkg.copyright %>. <%= pkg.license %> licensed.\n' +
@@ -50,37 +49,37 @@ module.exports = function (grunt) {
          */
         clean: {
             dist: [
-                '<%= project.assets %>/css/styles.unprefixed.css',
-                '<%= project.assets %>/css/styles.prefixed.css'
+                '<%= project.assets %>/css/*.css',
+                '<%= project.assets %>/js/*.js'
             ]
-        },
-
-        /**
-         * Concatenate JavaScript files
-         */
-        concat: {
-            dev: {
-                files: {
-                    '<%= project.assets %>/js/scripts.min.js': '<%= project.js %>'
-                }
-            },
-            options: {
-                stripBanners: true,
-                nonull: true,
-                banner: '<%= tag.banner %>'
-            }
         },
 
         /**
          * Uglify (minify) JavaScript files
          */
         uglify: {
-            options: {
-                banner: '<%= tag.banner %>'
+            dev: {
+                options: {
+                    banner: '<%= tag.banner %>',
+                    beautify: true,
+                    compress: false,
+                    mangle: false,
+                    preserveComments: 'all'
+                },
+                files: {
+                    '<%= project.assets %>/js/script.js': '<%= project.js %>'
+                }
             },
             dist: {
+                options: {
+                    banner: '<%= tag.banner %>',
+                    beautify: false,
+                    compress: true,
+                    mangle: false,
+                    preserveComments: false
+                },
                 files: {
-                    '<%= project.assets %>/js/scripts.min.js': '<%= project.js %>'
+                    '<%= project.assets %>/js/script.min.js': '<%= project.js %>'
                 }
             }
         },
@@ -91,19 +90,20 @@ module.exports = function (grunt) {
         sass: {
             dev: {
                 options: {
-                style: 'expanded',
-                banner: '<%= tag.banner %>'
-            },
+                    style: 'expanded',
+                    banner: '<%= tag.banner %>'
+                },
                 files: {
-                    '<%= project.assets %>/css/style.unprefixed.css': '<%= project.css %>'
+                    '<%= project.assets %>/css/styles.unprefixed.css': '<%= project.css %>'
                 }
             },
             dist: {
                 options: {
-                    style: 'expanded'
+                    style: 'compressed',
+                    banner: '<%= tag.banner %>'
                 },
                 files: {
-                    '<%= project.assets %>/css/style.unprefixed.css': '<%= project.css %>'
+                    '<%= project.assets %>/css/styles.unprefixed.css': '<%= project.css %>'
                 }
             }
         },
@@ -114,24 +114,44 @@ module.exports = function (grunt) {
         autoprefixer: {
             options: {
                 browsers: [
-                'last 2 version',
-                'safari 6',
-                'ie 9',
-                'opera 12.1',
-                'ios 6',
-                'android 4'
+                    'last 2 version',
+                    'safari 6',
+                    'ie 9',
+                    'opera 12.1',
+                    'ios 6',
+                    'android 4'
                 ]
             },
             dev: {
                 files: {
-                    '<%= project.assets %>/css/style.min.css': ['<%= project.assets %>/css/style.unprefixed.css']
+                    '<%= project.assets %>/css/styles.prefixed.css': ['<%= project.assets %>/css/styles.unprefixed.css']
                 }
             },
             dist: {
                 files: {
-                    '<%= project.assets %>/css/style.prefixed.css': ['<%= project.assets %>/css/style.unprefixed.css']
+                    '<%= project.assets %>/css/styles.prefixed.css': ['<%= project.assets %>/css/styles.unprefixed.css']
                 }
             }
+        },
+
+        /**
+         * CSS Minification
+         */
+         cssmin: {
+            dist: {
+                files: {
+                    '<%= project.assets %>/css/styles.css': [
+                        '<%= project.assets %>/css/styles.prefixed.css'
+                    ]
+                }
+            }
+        },
+
+        /**
+         * Stylestats
+         */
+        stylestats: {
+            src: ['<%= project.assets %>/css/styles.prefixed.css']
         },
 
         /**
@@ -140,36 +160,59 @@ module.exports = function (grunt) {
         watch: {
             concat: {
                 files: '<%= project.src %>/js/{,*/}*.js',
-                tasks: ['concat:dev', 'jshint']
+                tasks: [
+                    'concat:dev'
+                ]
             },
             sass: {
                 files: '<%= project.src %>/sass/{,*/}*.{scss,sass}',
-                tasks: ['sass:dev', 'cssmin:dev', 'autoprefixer:dev']
+                tasks: [
+                    'sass:dev',
+                    'autoprefixer:dev'
+                ]
             }
         }
     });
 
     /**
-    * Default task
-    * Run `grunt` on the command line
-    */
+     * Default task
+     * Run `grunt` on the command line
+     */
     grunt.registerTask('default', [
         'sass:dev',
         'autoprefixer:dev',
-        'concat:dev',
+        'uglify:dev',
         'watch'
     ]);
 
     /**
-    * Build task
-    * Run `grunt build` on the command line
-    * Then compress all JS/CSS files
-    */
+     * CSS Task
+     */
+    grunt.registerTask('css', [
+        'sass:dev',
+        'autoprefixer:dev',
+        'cssmin:dist',
+        'stylestats'
+    ]);
+
+    /**
+     * Javascript Task
+     */
+    grunt.registerTask('js', [
+        'uglify:dev'
+    ]);
+
+    /**
+     * Build task
+     * Run `grunt build` on the command line
+     * Then compress all JS/CSS files
+     */
     grunt.registerTask('build', [
+        'clean:dist',
         'sass:dist',
         'autoprefixer:dist',
-        'clean:dist',
-        'uglify'
+        'cssmin:dist',
+        'uglify:dist'
     ]);
 
 };
