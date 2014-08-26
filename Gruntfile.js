@@ -29,6 +29,9 @@ module.exports = function (grunt) {
             ],
             js: [
                 '<%= project.src %>/js/*.js'
+            ],
+            bower: [
+                // Additionally installed Bower files
             ]
         },
 
@@ -170,6 +173,16 @@ module.exports = function (grunt) {
                             '{,*/,*/*/}*.{jpg,png,gif,svg}'
                         ],
                         dest: '<%= project.assets %>/img',
+                    },
+                ]
+            },
+            bower: {
+                files: [
+                    {
+                        expand: true,
+                        flatten: true,
+                        src: '<%= project.bower %>',
+                        dest: '<%= project.src %>/js/libs',
                     }
                 ]
             }
@@ -236,11 +249,12 @@ module.exports = function (grunt) {
      * Run `grunt` on the command line
      */
     grunt.registerTask('default', [
+        'copy:img',
+        'copy:bower',
         'sass:dev',
         'autoprefixer:dev',
         'uglify:dev',
         'modernizr',
-        'copy:img',
         'watch'
     ]);
 
@@ -269,6 +283,9 @@ module.exports = function (grunt) {
      */
     grunt.registerTask('build', [
         'clean:dist',
+
+        // Bower files
+        'copy:bower',
 
         // Images
         'copy:img',
