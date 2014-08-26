@@ -175,6 +175,27 @@ module.exports = function (grunt) {
             }
         },
 
+        imagemin: {
+            dist: {
+                options: {
+                    optimizationLevel: 4,
+                    progressive: true,
+                    pngquant: true
+                },
+                files: [
+                    {
+                        expand: true,
+                        cwd: '<%= project.assets %>/img',
+                        src: [
+                            '*.{png,jpg,gif}',
+                            '**/*.{png,jpg,gif}',
+                        ],
+                        dest: '<%= project.assets %>/img'
+                    }
+                ]
+            }
+        },
+
         modernizr: {
             dist: {
                 devFile : '',
@@ -248,12 +269,16 @@ module.exports = function (grunt) {
      */
     grunt.registerTask('build', [
         'clean:dist',
+
         // Images
         'copy:img',
+        'imagemin:dist',
+
         // CSS
         'sass:dist',
         'autoprefixer:dist',
         'cssmin:dist',
+
         // JavaScript
         'uglify:dist',
         'modernizr'
