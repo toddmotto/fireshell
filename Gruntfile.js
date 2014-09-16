@@ -185,6 +185,20 @@ module.exports = function (grunt) {
                         dest: '<%= project.src %>/js/libs',
                     }
                 ]
+            },
+            export: {
+                src: [
+                    "app/**/**/*",
+                    "src/**/**/*",
+                    ".editorconfig",
+                    ".gitignore",
+                    ".jshintrc",
+                    "bower.json",
+                    "Gruntfile.js",
+                    "package.json",
+                    "!CHANGELOG.md"
+                ],
+                dest: '',
             }
         },
 
@@ -242,6 +256,14 @@ module.exports = function (grunt) {
                 ]
             }
         }
+    });
+
+    grunt.registerTask('export', '', function (dir) {
+        dir = dir || process.cwd() + "/../_new-project/";
+        dir += '/';
+        grunt.config('copy.export.dest', dir);
+        grunt.task.run(['copy:export']);
+        grunt.log.ok("New project waiting for you at " + dir);
     });
 
     /**
