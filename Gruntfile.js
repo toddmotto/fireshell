@@ -28,10 +28,12 @@ module.exports = function (grunt) {
                 '<%= project.src %>/sass/main.scss'
             ],
             js: [
+                '<%= project.src %>/js/libs/*.js',
                 '<%= project.src %>/js/*.js'
             ],
             bower: [
-                // Additionally installed Bower files
+                // List all vendor dependancies
+                "bower_components/jquery/dist/jquery.js"
             ]
         },
 
@@ -52,6 +54,7 @@ module.exports = function (grunt) {
          */
         clean: {
             dist: [
+                '<%= project.src %>/js/libs',
                 '<%= project.assets %>/css/*.css',
                 '<%= project.assets %>/js/*.js',
                 '<%= project.assets %>/img/*/**',
@@ -267,6 +270,13 @@ module.exports = function (grunt) {
     });
 
     /**
+     * First task on new project
+     */
+    grunt.registerTask('init', [
+        'copy:bower'
+    ]);
+
+    /**
      * Default task
      * Run `grunt` on the command line
      */
@@ -313,14 +323,15 @@ module.exports = function (grunt) {
         'copy:img',
         'imagemin:dist',
 
+        // JavaScript
+        'uglify:dist',
+        'modernizr',
+
         // CSS
         'sass:dist',
         'autoprefixer:dist',
         'cssmin:dist',
-
-        // JavaScript
-        'uglify:dist',
-        'modernizr'
+        'stylestats'
     ]);
 
 };
