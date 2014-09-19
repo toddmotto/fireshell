@@ -189,7 +189,7 @@ module.exports = function (grunt) {
                     }
                 ]
             },
-            export: {
+            new: {
                 src: [
                     "app/**/**/*",
                     "src/**/**/*",
@@ -261,11 +261,11 @@ module.exports = function (grunt) {
         }
     });
 
-    grunt.registerTask('export', '', function (dir) {
-        dir = dir || process.cwd() + "/../_new-project/";
-        dir += '/';
-        grunt.config('copy.export.dest', dir);
-        grunt.task.run(['copy:export']);
+    grunt.registerTask('new', 'Exports the contents of this repo, ready for a new project.', function (name) {
+        name = name || "new-project";
+        var dir = process.cwd() + "/../" + name + "/";
+        grunt.config('copy.new.dest', dir);
+        grunt.task.run(['copy:new']);
         grunt.log.ok("New project waiting for you at " + dir);
     });
 
