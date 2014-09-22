@@ -13,7 +13,7 @@ Quick-start for rapid project prototyping.
 
 Create an export of Fireshell for your new project:
 
-`$ grunt export[:../relative/path/new-project]`
+`$ grunt new [--target=/relative/path/new-project]`
 
 Copies all the required files for a clean install for setting up a new project. This is the only task executed within the current Fireshell directory.
 
@@ -29,15 +29,15 @@ Below is a sample of the Grunt tasks available within your new project:
 
 Creates a new development-ready environment and beings watching all files for changes.
 
-### `$ grunt css`
+### `$ grunt css [--target=dev]`
 
 Generate CSS using development settings and output statistics.
 
-### `$ grunt js`
+### `$ grunt js [--target=dev]`
 
 Generates a new Modernizr build and minifies all specified JS files. 
 
-### `$ grunt build`
+### `$ grunt build [--target=dev]`
 
 Creates a production-ready environment of your project. 
 

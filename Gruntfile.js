@@ -261,21 +261,6 @@ module.exports = function (grunt) {
         }
     });
 
-    grunt.registerTask('new', 'Exports the contents of this repo, ready for a new project.', function (name) {
-        name = name || "new-project";
-        var dir = process.cwd() + "/../" + name + "/";
-        grunt.config('copy.new.dest', dir);
-        grunt.task.run(['copy:new']);
-        grunt.log.ok("New project waiting for you at " + dir);
-    });
-
-    /**
-     * First task on new project
-     */
-    grunt.registerTask('init', [
-        'copy:bower'
-    ]);
-
     /**
      * Default task
      * Run `grunt` on the command line
@@ -291,47 +276,81 @@ module.exports = function (grunt) {
     ]);
 
     /**
+     * First task on new project
+     */
+    grunt.registerTask('init', [
+        'copy:bower'
+    ]);
+
+    /**
      * CSS Task
      */
-    grunt.registerTask('css', [
-        'sass:dev',
-        'autoprefixer:dev',
-        'cssmin:dist',
-        'stylestats'
-    ]);
+    grunt.registerTask('css', function () {
+        var target = grunt.option('target') || 'dist';
+        var tasks = [
+            'sass:' + target,
+            'autoprefixer:' + target,
+            'stylestats'
+        ];
+        if (target === 'dist') tasks.splice(2, 0, 'cssmin');
+        grunt.task.run(tasks);
+    });
 
     /**
      * Javascript Task
      */
-    grunt.registerTask('js', [
-        'uglify:dev',
-        'modernizr'
-    ]);
+    grunt.registerTask('js', function () {
+        var target = grunt.option('target') || 'dist';
+        grunt.task.run([
+            'uglify:' + target,
+            'modernizr'
+        ]);
+    });
 
     /**
      * Build task
      * Run `grunt build` on the command line
      * Then compress all JS/CSS files
      */
-    grunt.registerTask('build', [
-        'clean:dist',
+    grunt.registerTask('build', function () {
+        var target = grunt.option('target') || 'dist';
+        grunt.task.run([
+            'clean',
+            // Bower files
+            'copy:bower',
+            // Images
+            'copy:img',
+            'imagemin:'+ target,
+            // JavaScript
+            'uglify:'+ target,
+            'modernizr',
+            // CSS
+            'sass:'+ target,
+            'autoprefixer:'+ target,
+            'cssmin:'+ target,
+            'stylestats'
+        ]);
+    });
 
-        // Bower files
-        'copy:bower',
+    /**
+     * Export necessary files for starting a new project.
+     * Remove this task after starting a newly exported project.
+     */
+    grunt.registerTask('new', 'Exports the contents of this repo, ready for a new project.', function () {
+        var target = grunt.option('target') || "new-project";
+        var dirPath = process.cwd() + "/../" + target + "/";
+        var dirExists = grunt.file.isDir(dirPath);
 
-        // Images
-        'copy:img',
-        'imagemin:dist',
+        if (dirExists) {
+            grunt.log.writeln("Directory exists");
+        } else {
+            grunt.log.writeln("Creating directory "+ target +"");
+        }
+        grunt.log.writeln("Copying files...");
 
-        // JavaScript
-        'uglify:dist',
-        'modernizr',
-
-        // CSS
-        'sass:dist',
-        'autoprefixer:dist',
-        'cssmin:dist',
-        'stylestats'
-    ]);
+        grunt.config('copy.new.dest', dirPath);
+        grunt.task.run(['copy:new']);
+        grunt.log.ok("New project '"+ target +"' waiting for you at " + dirPath);
+    });
 
 };
