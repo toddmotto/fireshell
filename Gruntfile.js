@@ -5,6 +5,8 @@
  */
 module.exports = function (grunt) {
 
+    require('time-grunt')(grunt);
+
     /**
      * Dynamically load npm tasks
      */
@@ -25,16 +27,17 @@ module.exports = function (grunt) {
             app: 'app',
             assets: '<%= project.app %>/assets',
             css: [
-                '<%= project.src %>/sass/main.scss'
+                '<%= project.src %>/sass/screen.scss'
             ],
             js: [
                 '<%= project.src %>/js/libs/*.js',
                 '<%= project.src %>/js/*.js'
             ],
-            bower: [
-                // List all vendor dependancies
-                "bower_components/jquery/dist/jquery.js"
-            ]
+            bower: {
+                js: [
+                    "bower_components/jquery/dist/jquery.js"
+                ]
+            }
         },
 
         /**
@@ -53,7 +56,7 @@ module.exports = function (grunt) {
          * Clean files and folders
          */
         clean: {
-            dist: [
+            all: [
                 '<%= project.src %>/js/libs',
                 '<%= project.assets %>/css/*.css',
                 '<%= project.assets %>/js/*.js',
@@ -146,7 +149,7 @@ module.exports = function (grunt) {
          * CSS Minification
          */
          cssmin: {
-            dist: {
+            all: {
                 files: {
                     '<%= project.assets %>/css/styles.css': [
                         '<%= project.assets %>/css/styles.prefixed.css'
@@ -184,7 +187,7 @@ module.exports = function (grunt) {
                     {
                         expand: true,
                         flatten: true,
-                        src: '<%= project.bower %>',
+                        src: '<%= project.bower.js %>',
                         dest: '<%= project.src %>/js/libs',
                     }
                 ]
@@ -206,7 +209,7 @@ module.exports = function (grunt) {
         },
 
         imagemin: {
-            dist: {
+            all: {
                 options: {
                     optimizationLevel: 4,
                     progressive: true,
@@ -227,7 +230,7 @@ module.exports = function (grunt) {
         },
 
         modernizr: {
-            dist: {
+            all: {
                 devFile : '',
                 outputFile : "<%= project.assets %>/js/modernizr.build.js",
                 parseFiles : false,
@@ -320,14 +323,14 @@ module.exports = function (grunt) {
             'copy:bower',
             // Images
             'copy:img',
-            'imagemin:'+ target,
+            'imagemin',
             // JavaScript
             'uglify:'+ target,
             'modernizr',
             // CSS
             'sass:'+ target,
             'autoprefixer:'+ target,
-            'cssmin:'+ target,
+            'cssmin',
             'stylestats'
         ]);
     });

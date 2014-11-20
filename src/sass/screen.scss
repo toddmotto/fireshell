@@ -2,7 +2,8 @@
 // CONFIG
 //----------------------------------*/
 
-@import 'config/_vars.scss';
+@import '_vars.scss';
+@import '_fonts.scss';
 
 //----------------------------------*\
 // MIXINS
@@ -11,16 +12,19 @@
 @import 'mixins/_fontsize.scss';
 
 //----------------------------------*\
+// GLOBALS
+//----------------------------------*/
+
+@import 'globals/_normalize.scss';
+@import 'globals/_base.scss';
+
+//----------------------------------*\
 // MODULES
 //----------------------------------*/
 
-@import 'modules/_fonts.scss';
-@import 'modules/_normalize.scss';
-@import 'modules/_base.scss';
 @import 'modules/_utilities.scss';
 @import 'modules/_links.scss';
 @import 'modules/_inputs.scss';
-@import 'modules/_misc.scss';
 
 //----------------------------------*\
 // PARTIALS / VIEWS
