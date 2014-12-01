@@ -35,7 +35,7 @@ module.exports = function (grunt) {
             ],
             bower: {
                 js: [
-                    "bower_components/jquery/dist/jquery.js"
+                    // manually add files here
                 ]
             }
         },
