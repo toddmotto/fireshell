@@ -13,17 +13,17 @@ Quick-start for rapid project prototyping.
 
 Create an export of Fireshell for your new project:
 
-#### `$ grunt new [--target=/relative/path/new-project]`
+#### `$ grunt new [--target="/relative/path/new-project"]`
 
 Copies all the required files for a clean install for setting up a new project. This is the only task executed within the current Fireshell directory.
 
-Now `cd` into your new project directory and run the following task list:
+Now `cd` into your new project directory and run the init script:
 
-#### `new-project/ $ npm install && bower install && grunt init`
+#### `new-project/ $ ./init.sh`
 
-This should install all the required files and copy any initial bower dependancies to get you started.
+This should install all the required files (npm & bower) and copy any initial bower dependencies to get you started.
 
-## Gruntings
+## Grunting
 
 Below are a sample of the Grunt tasks available within your new project:
 

@@ -58,7 +58,7 @@ module.exports = function (grunt) {
         clean: {
             all: [
                 '<%= project.src %>/js/libs',
-                '<%= project.assets %>/css/*.css',
+                '<%= project.assets %>/css/*.{css,map}',
                 '<%= project.assets %>/js/*.js',
                 '<%= project.assets %>/img/*/**',
                 '<%= project.assets %>/img/{,*/,**/}*.{jpg,png,gif,svg}'
