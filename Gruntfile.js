@@ -202,7 +202,8 @@ module.exports = function (grunt) {
                     "bower.json",
                     "Gruntfile.js",
                     "package.json",
-                    "!CHANGELOG.md"
+                    "!CHANGELOG.md",
+                    "init.sh"
                 ],
                 dest: '',
             }
