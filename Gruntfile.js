@@ -85,7 +85,11 @@ module.exports = function (grunt) {
                 options: {
                     banner: '<%= tag.banner %>',
                     beautify: false,
-                    compress: true,
+                    compress: {
+                        drop_console: true,
+                        drop_debugger: true,
+                        warnings: true
+                    },
                     mangle: false,
                     preserveComments: false
                 },
@@ -320,15 +324,11 @@ module.exports = function (grunt) {
         var target = grunt.option('target') || 'dist';
         grunt.task.run([
             'clean',
-            // Bower files
             'copy:bower',
-            // Images
             'copy:img',
             'imagemin',
-            // JavaScript
             'uglify:'+ target,
             'modernizr',
-            // CSS
             'sass:'+ target,
             'autoprefixer:'+ target,
             'cssmin',
