@@ -1,4 +1,9 @@
-* { box-sizing: border-box; }
+html {
+    box-sizing: border-box;
+}
+*, *:before, *:after {
+    box-sizing: inherit;
+}
 
 ::-moz-selection {
     background: $c-text;
