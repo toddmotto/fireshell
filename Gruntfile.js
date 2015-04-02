@@ -5,8 +5,6 @@
  */
 module.exports = function (grunt) {
 
-    require('time-grunt')(grunt);
-
     /**
      * Dynamically load npm tasks
      */
@@ -293,8 +291,8 @@ module.exports = function (grunt) {
     /**
      * CSS Task
      */
-    grunt.registerTask('css', function () {
-        var target = grunt.option('target') || 'dist';
+    grunt.registerTask('css', function (target) {
+        var target = target || 'dist';
         var tasks = [
             'sass:' + target,
             'autoprefixer:' + target,
@@ -307,8 +305,8 @@ module.exports = function (grunt) {
     /**
      * Javascript Task
      */
-    grunt.registerTask('js', function () {
-        var target = grunt.option('target') || 'dist';
+    grunt.registerTask('js', function (target) {
+        var target = target || 'dist';
         grunt.task.run([
             'uglify:' + target,
             'modernizr'
@@ -320,8 +318,8 @@ module.exports = function (grunt) {
      * Run `grunt build` on the command line
      * Then compress all JS/CSS files
      */
-    grunt.registerTask('build', function () {
-        var target = grunt.option('target') || 'dist';
+    grunt.registerTask('build', function (target) {
+        var target = target || 'dist';
         grunt.task.run([
             'clean',
             'copy:bower',
@@ -340,8 +338,8 @@ module.exports = function (grunt) {
      * Export necessary files for starting a new project.
      * Remove this task after starting a newly exported project.
      */
-    grunt.registerTask('new', 'Exports the contents of this repo, ready for a new project. $ grunt new --target=your/project', function () {
-        var target = grunt.option('target') || "new-project";
+    grunt.registerTask('new', 'Exports the contents of this repo, ready for a new project. $ grunt new --target=your/project', function (target) {
+        var target = target || "new-project";
         var dirPath = process.cwd() + "/../" + target + "/";
         var dirExists = grunt.file.isDir(dirPath);
 

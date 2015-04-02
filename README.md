@@ -31,15 +31,15 @@ Below are a sample of the Grunt tasks available within your new project:
 
 Creates a new development-ready environment and beings watching all files for changes.
 
-#### `$ grunt css [--target=dev]`
+#### `$ grunt css[:dist]`
 
 Generate CSS using development settings and output statistics.
 
-#### `$ grunt js [--target=dev]`
+#### `$ grunt js[:dist]`
 
 Generates a new Modernizr build and minifies all specified JS files. 
 
-#### `$ grunt build [--target=dev]`
+#### `$ grunt build[:dist]`
 
 Creates a production-ready environment of your project. 
 
