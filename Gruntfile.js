@@ -107,7 +107,7 @@ module.exports = function (grunt) {
                     banner: '<%= tag.banner %>'
                 },
                 files: {
-                    '<%= project.assets %>/css/styles.unprefixed.css': '<%= project.css %>'
+                    '<%= project.assets %>/css/styles.sassed.css': '<%= project.css %>'
                 }
             },
             dist: {
@@ -116,7 +116,7 @@ module.exports = function (grunt) {
                     banner: '<%= tag.banner %>'
                 },
                 files: {
-                    '<%= project.assets %>/css/styles.unprefixed.css': '<%= project.css %>'
+                    '<%= project.assets %>/css/styles.sassed.css': '<%= project.css %>'
                 }
             }
         },
@@ -137,12 +137,12 @@ module.exports = function (grunt) {
             },
             dev: {
                 files: {
-                    '<%= project.assets %>/css/styles.prefixed.css': ['<%= project.assets %>/css/styles.unprefixed.css']
+                    '<%= project.assets %>/css/styles.prefixed.css': ['<%= project.assets %>/css/styles.sassed.css']
                 }
             },
             dist: {
                 files: {
-                    '<%= project.assets %>/css/styles.prefixed.css': ['<%= project.assets %>/css/styles.unprefixed.css']
+                    '<%= project.assets %>/css/styles.prefixed.css': ['<%= project.assets %>/css/styles.sassed.css']
                 }
             }
         },
@@ -153,7 +153,7 @@ module.exports = function (grunt) {
          cssmin: {
             all: {
                 files: {
-                    '<%= project.assets %>/css/styles.css': [
+                    '<%= project.assets %>/css/styles.min.css': [
                         '<%= project.assets %>/css/styles.prefixed.css'
                     ]
                 }
