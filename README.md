@@ -13,7 +13,7 @@ Quick-start for rapid project prototyping.
 
 Create an export of Fireshell for your new project:
 
-#### `$ grunt new [--target="/relative/path/new-project"]`
+#### `$ grunt new[:name]`
 
 Copies all the required files for a clean install for setting up a new project. This is the only task executed within the current Fireshell directory.
 
