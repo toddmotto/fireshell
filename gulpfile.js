@@ -9,17 +9,15 @@ args.isProd = args.dist || args.prod || false;
 var sass = require('gulp-ruby-sass');
 var autoprefixer = require('gulp-autoprefixer');
 var minifycss = require('gulp-minify-css');
-// var jshint = require('gulp-jshint');
 var uglify = require('gulp-uglify');
 var imagemin = require('gulp-imagemin');
 var rename = require('gulp-rename');
-// var notify = require('gulp-notify');
 // var cache = require('gulp-cache');
 var del = require('del');
 
 gulp.task('css', ['clean'], function () {
 
-    var process = sass('src/sass/screen.scss', {
+    var pipeline = sass('src/sass/screen.scss', {
             style: 'expanded'
         })
         .pipe(autoprefixer({
@@ -37,15 +35,15 @@ gulp.task('css', ['clean'], function () {
             suffix: args.isProd ? '.min' : null
         }));
 
-    if (args.isProd) process.pipe(minifycss());
+    if (args.isProd) pipeline.pipe(minifycss());
 
-    return process.pipe(gulp.dest('app/assets/css/'));
+    return pipeline.pipe(gulp.dest('app/assets/css/'));
 
 });
 
 gulp.task('js', [], function () {
 
-    var process = gulp.src('src/js/**/*.js')
+    var pipeline = gulp.src('src/js/**/*.js')
         .pipe(uglify({
             beautify: !args.isProd,
             compress: args.isProd,
@@ -58,7 +56,22 @@ gulp.task('js', [], function () {
         }))
         .pipe(gulp.dest('app/assets/js'));
 
-    return process;
+    return pipeline;
+
+});
+
+gulp.task('images', [], function() {
+
+    var pipeline = gulp.src('src/img/**/*.{jpg,jpeg,png,gif}')
+        .pipe(imagemin({
+            optimizationLevel: 4,
+            progressive: true,
+            interlaced: true,
+            pngquant: true
+        }))
+        .pipe(gulp.dest('app/assets/img'));
+
+    return pipeline;
 
 });
 
