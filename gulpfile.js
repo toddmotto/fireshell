@@ -1,12 +1,9 @@
+'use strict';
+
 var gulp = require('gulp');
 
-var args = require('yargs')
-    .default({ env: 'dev' })
-    .argv;
-args.env = (args.dist || args.prod) ? 'dist' : args.env;
-args.isProd = args.dist || args.prod || false;
-
 var sass = require('gulp-ruby-sass');
+var sourcemaps = require('gulp-sourcemaps');
 var autoprefixer = require('gulp-autoprefixer');
 var minifycss = require('gulp-minify-css');
 var uglify = require('gulp-uglify');
@@ -15,11 +12,20 @@ var rename = require('gulp-rename');
 // var cache = require('gulp-cache');
 var del = require('del');
 
+var args = require('yargs')
+    .default({ env: 'dev' })
+    .argv;
+
+args.env = (args.dist || args.prod) ? 'dist' : args.env;
+args.isProd = args.dist || args.prod || false;
+
 gulp.task('css', ['clean'], function () {
 
     var pipeline = sass('src/sass/screen.scss', {
-            style: 'expanded'
+            style: 'expanded',
+            sourcemap: true
         })
+        .pipe(sourcemaps.write())
         .pipe(autoprefixer({
             browsers: [
                 'last 2 version',
@@ -86,6 +92,7 @@ gulp.task('clean', function () {
 
 gulp.task('default', ['clean', 'css', 'js'], function () {
 
-    // gulp.start();
+    gulp.start();
+    // gulp.watch(, []);
 
 });
