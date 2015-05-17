@@ -19,7 +19,7 @@
     "grunt-contrib-connect": "~0.3.0",
     "grunt-contrib-jshint": "~0.4.3",
     "grunt-contrib-watch": "~0.4.4",
-    "grunt-bower": "~0.7.0",
+    "grunt-bower": "~0.16.0",
     "grunt-autoprefixer": "~0.3.0",
     "grunt-contrib-cssmin": "~0.6.2",
     "grunt-contrib-clean": "~0.5.0",
