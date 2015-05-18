@@ -1,6 +1,6 @@
 'use strict';
 
-var config = require('./config.json');
+var config = require('../config.json');
 var gulp = require('gulp');
 var sass = require('gulp-ruby-sass');
 var sourcemaps = require('gulp-sourcemaps');
