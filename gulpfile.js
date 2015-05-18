@@ -19,13 +19,24 @@ var args = require('yargs')
 args.env = (args.dist || args.prod) ? 'dist' : args.env;
 args.isProd = args.dist || args.prod || false;
 
-gulp.task('css', ['clean'], function () {
+
+/**
+ * CSS and Styles
+ *
+ */
+gulp.task('css', [], function () {
 
     var pipeline = sass('src/sass/screen.scss', {
             style: 'expanded',
             sourcemap: true
         })
         .pipe(sourcemaps.write())
+
+        // Un-prefixed
+        .pipe(rename({ basename: 'styles.unprefixed' }))
+        .pipe(gulp.dest('app/assets/css/'))
+
+        // Prefixed
         .pipe(autoprefixer({
             browsers: [
                 'last 2 version',
@@ -36,29 +47,42 @@ gulp.task('css', ['clean'], function () {
                 'android 4'
             ]
         }))
-        .pipe(rename({
-            basename: 'styles',
-            suffix: args.isProd ? '.min' : null
-        }));
+        .pipe(rename({ basename: 'styles' }))
+        .pipe(gulp.dest('app/assets/css/'))
 
-    if (args.isProd) pipeline.pipe(minifycss());
+        // Minified
+        .pipe(rename({ basename: 'styles', suffix: '.min' }))
+        .pipe(minifycss())
+        .pipe(gulp.dest('app/assets/css/'));
 
-    return pipeline.pipe(gulp.dest('app/assets/css/'));
+    return pipeline;
 
 });
 
+
+/**
+ * Javascript
+ *
+ */
 gulp.task('js', [], function () {
 
     var pipeline = gulp.src('src/js/**/*.js')
+
+        // Un-minified
+        .pipe(rename({
+            basename: 'scripts'
+        }))
+        .pipe(gulp.dest('app/assets/js'))
+
+        // Minified
         .pipe(uglify({
-            beautify: !args.isProd,
-            compress: args.isProd,
-            mangle: args.isProd,
-            preserveComments: args.isProd ? false : 'all'
+            beautify: true,
+            compress: {},
+            mangle: true,
+            preserveComments: false
         }))
         .pipe(rename({
-            basename: 'scripts',
-            suffix: args.isProd ? '.min' : null
+            suffix: '.min'
         }))
         .pipe(gulp.dest('app/assets/js'));
 
@@ -66,6 +90,11 @@ gulp.task('js', [], function () {
 
 });
 
+
+/**
+ * Image processing
+ *
+ */
 gulp.task('images', [], function() {
 
     var pipeline = gulp.src('src/img/**/*.{jpg,jpeg,png,gif}')
@@ -81,7 +110,12 @@ gulp.task('images', [], function() {
 
 });
 
-gulp.task('clean', function () {
+
+/**
+ * Cleaning project directories
+ *
+ */
+gulp.task('clean:assets', [], function () {
 
     del([
         'app/assets/css/*',
@@ -90,9 +124,15 @@ gulp.task('clean', function () {
 
 });
 
+gulp.task('clean', ['clean:assets']);
+
+
+/**
+ * Default
+ *
+ */
 gulp.task('default', ['clean', 'css', 'js'], function () {
 
     gulp.start();
-    // gulp.watch(, []);
 
 });
