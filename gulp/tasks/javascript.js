@@ -1,6 +1,6 @@
 'use strict';
 
-var config = require('../config.json');
+var config = require('../config.js');
 var gulp = require('gulp');
 var uglify = require('gulp-uglify');
 var rename = require('gulp-rename');
