@@ -8,16 +8,16 @@ var imagemin = require('gulp-imagemin');
  * Image processing
  *
  */
-gulp.task('images:default', function() {
+gulp.task('images:raster', function() {
 
-    var pipeline = gulp.src('src/img/{./,**/}*.{jpg,jpeg,png,gif}')
+    var pipeline = gulp.src(config.images.srcDefault)
         .pipe(imagemin({
             optimizationLevel: 4,
             progressive: true,
             interlaced: true,
             pngquant: true
         }))
-        .pipe(gulp.dest('app/assets/img'));
+        .pipe(gulp.dest(config.images.dest));
 
     return pipeline;
 
@@ -25,7 +25,7 @@ gulp.task('images:default', function() {
 
 gulp.task('images:svg', function() {
 
-    var pipeline = gulp.src('src/img/{./,**/}*.svg')
+    var pipeline = gulp.src(config.images.srcSvg)
         .pipe(imagemin({
             svgoPlugins: [
                 // More options here: https://github.com/svg/svgo
@@ -34,10 +34,13 @@ gulp.task('images:svg', function() {
                 { removeEmptyAttrs: false }
             ],
         }))
-        .pipe(gulp.dest('app/assets/img'));
+        .pipe(gulp.dest(config.images.dest));
 
     return pipeline;
 
 });
 
-gulp.task('images', ['images:svg', 'images:default']);
+gulp.task('images', [
+    'images:svg',
+    'images:raster'
+]);

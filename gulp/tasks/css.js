@@ -14,7 +14,7 @@ var rename = require('gulp-rename');
  */
 gulp.task('css', [], function () {
 
-    var pipeline = sass('src/sass/screen.scss', {
+    var pipeline = sass(config.css.src, {
             style: 'expanded',
             sourcemap: true
         })
@@ -22,26 +22,17 @@ gulp.task('css', [], function () {
 
         // Un-prefixed
         .pipe(rename({ basename: 'styles.unprefixed' }))
-        .pipe(gulp.dest('app/assets/css/'))
+        .pipe(gulp.dest(config.css.dest))
 
         // Prefixed
-        .pipe(autoprefixer({
-            browsers: [
-                'last 2 version',
-                'safari 6',
-                'ie 9',
-                'opera 12.1',
-                'ios 6',
-                'android 4'
-            ]
-        }))
+        .pipe(autoprefixer(config.css.autoprefixer))
         .pipe(rename({ basename: 'styles' }))
-        .pipe(gulp.dest('app/assets/css/'))
+        .pipe(gulp.dest(config.css.dest))
 
         // Minified
         .pipe(rename({ basename: 'styles', suffix: '.min' }))
         .pipe(minifycss())
-        .pipe(gulp.dest('app/assets/css/'));
+        .pipe(gulp.dest(config.css.dest));
 
     return pipeline;
 

@@ -10,12 +10,10 @@ var del = require('del');
  */
 gulp.task('clean:assets', [], function () {
 
-    del([
-        'app/assets/css/*',
-        'app/assets/js/*',
-        'app/assets/img/*'
-    ]);
+    del(config.clean.assets);
 
 });
 
-gulp.task('clean', ['clean:assets']);
+gulp.task('clean', [
+    'clean:assets'
+]);

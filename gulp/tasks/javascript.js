@@ -11,13 +11,13 @@ var rename = require('gulp-rename');
  */
 gulp.task('js', [], function () {
 
-    var pipeline = gulp.src('src/js/**/*.js')
+    var pipeline = gulp.src(config.js.src)
 
         // Un-minified
         .pipe(rename({
             basename: 'scripts'
         }))
-        .pipe(gulp.dest('app/assets/js'))
+        .pipe(gulp.dest(config.js.dest))
 
         // Minified
         .pipe(uglify({
@@ -29,7 +29,7 @@ gulp.task('js', [], function () {
         .pipe(rename({
             suffix: '.min'
         }))
-        .pipe(gulp.dest('app/assets/js'));
+        .pipe(gulp.dest(config.js.dest));
 
     return pipeline;
 
