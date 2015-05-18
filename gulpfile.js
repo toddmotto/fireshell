@@ -1,7 +1,8 @@
 'use strict';
 
-var gulp = require('gulp');
+var config = require('./tasks/config.json');
 
+var gulp = require('gulp');
 var sass = require('gulp-ruby-sass');
 var sourcemaps = require('gulp-sourcemaps');
 var autoprefixer = require('gulp-autoprefixer');
