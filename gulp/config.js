@@ -6,7 +6,7 @@ module.exports = {
     app: app,
     src: src,
 
-    css: {
+    sass: {
         src: src + '/sass/screen.scss',
         dest: app + '/assets/css/',
         autoprefixer: {
