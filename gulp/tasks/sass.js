@@ -3,6 +3,7 @@
 var config = require('../config.js');
 var gulp = require('gulp');
 var sass = require('gulp-ruby-sass');
+var handleErrors = require('../util/handle-errors');
 var sourcemaps = require('gulp-sourcemaps');
 var autoprefixer = require('gulp-autoprefixer');
 var minifycss = require('gulp-minify-css');
@@ -18,6 +19,7 @@ gulp.task('sass', [], function () {
             style: 'expanded',
             sourcemap: true
         })
+        .on('error', handleErrors)
         .pipe(sourcemaps.write())
 
         // Un-prefixed
