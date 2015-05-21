@@ -1,14 +1,18 @@
-var app = './app';
+'use strict';
+
+var pkg = require('../package.json');
+var dest = './app';
 var src = './src';
 
 module.exports = {
 
-    app: app,
+    pkg: pkg,
+    dest: dest,
     src: src,
 
     sass: {
         src: src + '/sass/screen.scss',
-        dest: app + '/assets/css/',
+        dest: dest + '/assets/css/',
         autoprefixer: {
             browsers: [
                 'last 2 version',
@@ -22,18 +26,58 @@ module.exports = {
     },
     js: {
         src: src + '/js/**/*.js',
-        dest: app + '/assets/js'
+        dest: dest + '/assets/js'
     },
     images: {
         srcRaster: src + '/img/{./,**/}*.{jpg,jpeg,png,gif}',
         srcSvg: src + '/img/{./,**/}*.svg',
-        dest: app + '/assets/img'
+        dest: dest + '/assets/img'
     },
     clean: {
         assets: [
-            app + '/assets/css/*',
-            app + '/assets/js/*',
-            app + '/assets/img/*'
+            dest + '/assets/css/*',
+            dest + '/assets/js/*',
+            dest + '/assets/img/*'
         ]
+    },
+    stylestats: {
+        type: 'json',
+        outfile: true,
+        config: {
+            "published": true,
+            "paths": true,
+            "stylesheets": true,
+            "styleElements": true,
+            "size": true,
+            "dataUriSize": true,
+            "ratioOfDataUriSize": true,
+            "gzippedSize": true,
+            "simplicity": true,
+            "rules": true,
+            "selectors": true,
+            "declarations": true,
+            "averageOfIdentifier": true,
+            "mostIdentifier": true,
+            "mostIdentifierSelector": true,
+            "averageOfCohesion": true,
+            "lowestCohesion": true,
+            "lowestCohesionSelector": true,
+            "totalUniqueFontSizes": true,
+            "uniqueFontSizes": true,
+            "totalUniqueFontFamilies": true,
+            "uniqueFontFamilies": true,
+            "totalUniqueColors": true,
+            "uniqueColors": true,
+            "idSelectors": true,
+            "universalSelectors": true,
+            "unqualifiedAttributeSelectors": true,
+            "javascriptSpecificSelectors": "[#\\.]js\\-", // .json
+            "userSpecifiedSelectors": false,
+            "importantKeywords": true,
+            "floatProperties": true,
+            "mediaQueries": true,
+            "propertiesCount": 10,
+            "requestOptions": {}
+        }
     }
 }

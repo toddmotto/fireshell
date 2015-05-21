@@ -8,6 +8,8 @@ var sourcemaps = require('gulp-sourcemaps');
 var autoprefixer = require('gulp-autoprefixer');
 var minifycss = require('gulp-minify-css');
 var rename = require('gulp-rename');
+var stylestats = require('gulp-stylestats');
+
 
 /**
  * CSS and Styles
@@ -34,6 +36,10 @@ gulp.task('sass', [], function () {
         // Minified
         .pipe(rename({ basename: 'styles', suffix: '.min' }))
         .pipe(minifycss())
+        .pipe(gulp.dest(config.sass.dest))
+
+        .pipe(stylestats(config.stylestats))
+        .pipe(rename({ basename: 'styles.stats' }))
         .pipe(gulp.dest(config.sass.dest));
 
     return pipeline;
