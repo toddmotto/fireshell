@@ -8,10 +8,10 @@
  */
 'use strict';
 
-var config = require('../config.js');
 var gulp = require('gulp');
 var bump = require('gulp-bump');
 var gutil = require('gulp-util');
+var config = require('../config.js');
 
 gulp.task('bump', function () {
 

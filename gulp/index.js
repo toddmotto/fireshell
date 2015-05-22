@@ -2,7 +2,8 @@
  * index.js
  *
  * Auto-loads all gulp tasks within ./tasks
- * Also handles arguments and environment settings.
+ * Also handles arguments and environment settings which can be
+ * accessed throughout each of the tasks.
  *
  */
 'use strict';

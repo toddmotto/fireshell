@@ -6,9 +6,9 @@
  */
 'use strict';
 
-var config = require('../config.js');
-var gulp = require('gulp');
 var del = require('del');
+var gulp = require('gulp');
+var config = require('../config.js');
 
 
 gulp.task('clean:assets', function () {
@@ -17,6 +17,13 @@ gulp.task('clean:assets', function () {
 
 });
 
+gulp.task('clean:bower', function () {
+
+    del(config.clean.bower);
+
+});
+
 gulp.task('clean', [
-    'clean:assets'
+    'clean:assets',
+    'clean:bower'
 ]);

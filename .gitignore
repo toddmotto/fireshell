@@ -10,11 +10,13 @@ lib-cov
 pids
 logs
 # results
-npm-debug.log
-node_modules
 
 ## Bower
 bower_components
+
+## Node
+npm-debug.log
+node_modules
 
 ## Sass
 .sass-cache
@@ -34,6 +36,7 @@ ehthumbs.db
 Desktop.ini
 $RECYCLE.BIN/
 
-## Others
+## Application
 temp
 app/assets/
+src/js/libs

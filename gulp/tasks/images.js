@@ -6,8 +6,8 @@
  */
 'use strict';
 
-var config = require('../config.js');
 var gulp = require('gulp');
+var config = require('../config.js');
 var imagemin = require('gulp-imagemin');
 
 /**

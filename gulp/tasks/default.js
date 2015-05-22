@@ -9,6 +9,7 @@
 var gulp = require('gulp');
 
 gulp.task('default', [
+    'bower',
     'clean',
     'sass',
     'watch'

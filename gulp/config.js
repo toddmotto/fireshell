@@ -43,6 +43,12 @@ module.exports = {
             debug: true
         }
     },
+    bower: {
+        src: [
+            // ./bower_components
+        ],
+        dest: 'src/js/libs'
+    },
     images: {
         srcRaster: src + '/img/{./,**/}*.{jpg,jpeg,png,gif}',
         srcSvg: src + '/img/{./,**/}*.svg',
@@ -53,7 +59,8 @@ module.exports = {
             dest + '/assets/css/*',
             dest + '/assets/js/*',
             dest + '/assets/img/*'
-        ]
+        ],
+        bower: 'src/js/libs'
     },
     stylestats: {
         type: 'json',

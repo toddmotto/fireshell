@@ -8,16 +8,16 @@
  */
 'use strict';
 
-var config = require('../config.js');
 var gulp = require('gulp');
-var browserify = require('browserify');
-var babelify = require('babelify');
-var watchify = require('watchify');
+var gutil = require('gulp-util');
 var source = require('vinyl-source-stream');
 var buffer = require('vinyl-buffer');
-var gutil = require('gulp-util');
-var sourcemaps = require('gulp-sourcemaps');
+var config = require('../config.js');
 var assign = require('lodash.assign');
+var babelify = require('babelify');
+var watchify = require('watchify');
+var sourcemaps = require('gulp-sourcemaps');
+var browserify = require('browserify');
 
 // This ensures the following args properties are passed
 // into browserify as watchify requires them:

@@ -7,15 +7,15 @@
  */
 'use strict';
 
-var config = require('../config.js');
 var gulp = require('gulp');
 var sass = require('gulp-ruby-sass');
-var handleErrors = require('../util/handle-errors');
-var sourcemaps = require('gulp-sourcemaps');
-var autoprefixer = require('gulp-autoprefixer');
-var minifycss = require('gulp-minify-css');
+var config = require('../config.js');
 var rename = require('gulp-rename');
+var sourcemaps = require('gulp-sourcemaps');
+var minifycss = require('gulp-minify-css');
 var stylestats = require('gulp-stylestats');
+var handleErrors = require('../util/handle-errors');
+var autoprefixer = require('gulp-autoprefixer');
 
 gulp.task('sass', [], function () {
 

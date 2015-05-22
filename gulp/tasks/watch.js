@@ -8,8 +8,8 @@
  */
 'use strict';
 
-var config = require('../config.js');
 var gulp = require('gulp');
+var config = require('../config.js');
 
 gulp.task('watch', function() {
 
