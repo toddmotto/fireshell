@@ -11,9 +11,7 @@
 var config = require('../config.js');
 var gulp = require('gulp');
 
-gulp.task('watch', [ 'js:watchify' ], function() {
-
-    // js:watch called above
+gulp.task('watch', function() {
 
     gulp.watch(config.sass.watch, ['sass']);
 
@@ -21,5 +19,8 @@ gulp.task('watch', [ 'js:watchify' ], function() {
         config.images.srcRaster,
         config.images.srcSvg
     ], ['images']);
+
+    // Watch tasks not directly watched by gulp.watch
+    gulp.start(['js:watchify']);
 
 });
