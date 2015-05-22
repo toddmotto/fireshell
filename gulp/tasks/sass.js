@@ -27,21 +27,21 @@ gulp.task('sass', [], function () {
         .pipe(sourcemaps.write())
 
         // Un-prefixed
-        .pipe(rename({ basename: 'styles.unprefixed' }))
+        .pipe(rename({ basename: config.sass.basename + '.unprefixed' }))
         .pipe(gulp.dest(config.sass.dest))
 
         // Prefixed
         .pipe(autoprefixer(config.sass.autoprefixer))
-        .pipe(rename({ basename: 'styles' }))
+        .pipe(rename({ basename: config.sass.basename }))
         .pipe(gulp.dest(config.sass.dest))
 
         // Minified
-        .pipe(rename({ basename: 'styles', suffix: '.min' }))
+        .pipe(rename({ basename: config.sass.basename, suffix: '.min' }))
         .pipe(minifycss())
         .pipe(gulp.dest(config.sass.dest))
 
         .pipe(stylestats(config.stylestats))
-        .pipe(rename({ basename: 'styles.stats' }))
+        .pipe(rename({ basename: config.sass.basename + '.stats' }))
         .pipe(gulp.dest(config.sass.dest));
 
     return pipeline;

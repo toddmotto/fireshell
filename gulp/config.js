@@ -22,6 +22,7 @@ module.exports = {
     sass: {
         src: src + '/sass/screen.scss',
         dest: dest + '/assets/css/',
+        basename: 'styles',
         watch: src + '/sass/**/*',
         autoprefixer: {
             browsers: [

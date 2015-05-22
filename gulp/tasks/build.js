@@ -1,16 +1,14 @@
 /**
- * default.js
- *
- * Run this for local development.
+ * build.js
  *
  */
 'use strict';
 
 var gulp = require('gulp');
 
-gulp.task('default', [
+gulp.task('build', [
     'clean',
     'bower',
     'sass',
-    'watch'
+    'js'
 ]);
