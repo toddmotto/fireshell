@@ -1,2 +1,2 @@
 #!/bin/bash
-npm install && bower install && gulp init
+npm install && bower install
