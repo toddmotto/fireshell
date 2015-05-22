@@ -10,11 +10,10 @@
 var gulp = require('gulp');
 var requireDir = require('require-dir');
 var tasks = requireDir('./tasks', { recurse: true });
+var gutil = require('gulp-util');
 var args = require('yargs').argv;
 
-gulp.args = args;
-
-gulp._env = {
-    prod: !!args.prod,
-    dev: !!args.dev
-};
+// Specify arguments by double-dashing eg:
+// --production
+// --type=<type>
+gulp.args = gutil.env;
