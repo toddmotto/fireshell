@@ -14,6 +14,11 @@ module.exports = {
     dest: dest,
     src: src,
 
+    bump: {
+        src: [
+            './package.json'
+        ]
+    },
     sass: {
         src: src + '/sass/screen.scss',
         dest: dest + '/assets/css/',
