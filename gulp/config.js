@@ -13,6 +13,7 @@ module.exports = {
     sass: {
         src: src + '/sass/screen.scss',
         dest: dest + '/assets/css/',
+        watch: src + '/sass/**/*',
         autoprefixer: {
             browsers: [
                 'last 2 version',
@@ -25,8 +26,13 @@ module.exports = {
         }
     },
     js: {
-        src: src + '/js/**/*.js',
-        dest: dest + '/assets/js'
+        dest: dest + '/assets/js',
+        browserify: {
+            entries: [
+                src + '/js/app.js'
+            ],
+            debug: true
+        }
     },
     images: {
         srcRaster: src + '/img/{./,**/}*.{jpg,jpeg,png,gif}',
