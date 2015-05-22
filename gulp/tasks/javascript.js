@@ -19,12 +19,13 @@ var gutil = require('gulp-util');
 var sourcemaps = require('gulp-sourcemaps');
 var assign = require('lodash.assign');
 
-// TODO cehck watchify args
+// This ensures the following args properties are passed
+// into browserify as watchify requires them:
 // { cache: {}, packageCache: {} }
 var options = assign({}, watchify.args, config.js.browserify);
 
-// open the watchify stream
-var w = watchify(browserify(options));
+// used for the watchify stream below
+var w;
 
 
 /**
@@ -61,10 +62,9 @@ function bundle () {
  */
 gulp.task('js:watchify', bundlify);
 
-w.on('update', bundlify);
-w.on('log', gutil.log);
-
 function bundlify() {
+
+    w = w || getWatchifyInstance();
 
     var pipeline = w
 
@@ -83,3 +83,18 @@ function bundlify() {
     return pipeline;
 
 };
+
+function getWatchifyInstance () {
+
+    // Open the watchify stream if not already set
+    // and bind update/log events.
+
+    if (!w) {
+        w = watchify(browserify(options));
+        w.on('update', bundlify);
+        w.on('log', gutil.log);
+    }
+
+    return w;
+
+}
