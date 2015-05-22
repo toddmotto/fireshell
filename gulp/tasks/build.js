@@ -10,5 +10,6 @@ gulp.task('build', [
     'clean',
     'bower',
     'sass',
+    'images:optimize',
     'js'
 ]);

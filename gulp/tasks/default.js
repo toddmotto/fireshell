@@ -12,5 +12,6 @@ gulp.task('default', [
     'clean',
     'bower',
     'sass',
+    'images',
     'watch'
 ]);
