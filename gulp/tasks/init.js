@@ -1,3 +1,10 @@
+/**
+ * init.js
+ *
+ * Run when a project has been freshly cloned or third-party
+ * libraries need to be re-initiated.
+ *
+ */
 'use strict';
 
 var gulp = require('gulp');

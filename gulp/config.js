@@ -1,3 +1,7 @@
+/**
+ * config.js
+ *
+ */
 'use strict';
 
 var pkg = require('../package.json');

@@ -1,8 +1,15 @@
+/**
+ * javascript.js
+ *
+ * Using browserify and babelify to bundle all javascript
+ * files, js:watchify uses watchify to recompile when files
+ * have changed.
+ *
+ */
 'use strict';
 
 var config = require('../config.js');
 var gulp = require('gulp');
-
 var browserify = require('browserify');
 var babelify = require('babelify');
 var watchify = require('watchify');
@@ -52,7 +59,7 @@ function bundle () {
  * files have changed
  *
  */
-gulp.task('js:watch', bundlify);
+gulp.task('js:watchify', bundlify);
 
 w.on('update', bundlify);
 w.on('log', gutil.log);

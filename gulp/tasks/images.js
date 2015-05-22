@@ -1,3 +1,9 @@
+/**
+ * images.js
+ *
+ * Image optimisation for rasters (jpg, png, gif) and vectors.
+ *
+ */
 'use strict';
 
 var config = require('../config.js');

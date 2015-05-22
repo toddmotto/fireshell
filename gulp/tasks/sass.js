@@ -1,3 +1,10 @@
+/**
+ * sass.js
+ *
+ * Source-mapped and Autoprefixed. Stylestats is also used to provide a
+ * json file of CSS statistics.
+ *
+ */
 'use strict';
 
 var config = require('../config.js');
@@ -10,11 +17,6 @@ var minifycss = require('gulp-minify-css');
 var rename = require('gulp-rename');
 var stylestats = require('gulp-stylestats');
 
-
-/**
- * CSS and Styles
- *
- */
 gulp.task('sass', [], function () {
 
     var pipeline = sass(config.sass.src, {
