@@ -1,6 +1,4 @@
 {
   "name": "fireshell",
-  "dependencies": {
-    "modernizr": "~2.8.3"
-  }
+  "dependencies": {}
 }

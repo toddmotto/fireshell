@@ -44,6 +44,30 @@ module.exports = {
             debug: true
         }
     },
+    modernizr: {
+        src: [
+            src + '/js/**/*.js',
+            src + '/sass/**/*.scss',
+        ],
+        dest: dest + '/assets/js',
+        options: {
+            cache : false,
+            uglify : false,
+            // forced tests
+            tests : [
+                'touchevents',
+                'flexbox'
+            ],
+            // Default settings: http://modernizr.com/download/
+            "options" : [
+                "setClasses",
+                "addTest",
+                "html5printshiv",
+                "testProp",
+                "fnBind"
+            ],
+        }
+    },
     bower: {
         src: [
             // ./bower_components

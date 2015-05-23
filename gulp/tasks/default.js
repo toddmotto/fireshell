@@ -10,6 +10,7 @@ var gulp = require('gulp');
 
 gulp.task('default', [
     'clean',
+    'modernizr',
     'bower',
     'sass',
     'images',
