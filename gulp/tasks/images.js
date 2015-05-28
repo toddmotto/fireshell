@@ -8,6 +8,7 @@
 'use strict';
 
 var gulp = require('gulp');
+var size = require('gulp-size');
 var config = require('../config.js');
 var imagemin = require('gulp-imagemin');
 
@@ -32,6 +33,10 @@ gulp.task('images:raster', function () {
             interlaced: true,
             pngquant: true
         }))
+        .pipe(size({
+            showFiles: config.size.showFiles,
+            title: "Image size (raster):"
+        }))
         .pipe(gulp.dest(config.images.dest));
 
     return pipeline;
@@ -48,6 +53,10 @@ gulp.task('images:svg', function () {
                 { removeUselessStrokeAndFill: false },
                 { removeEmptyAttrs: false }
             ],
+        }))
+        .pipe(size({
+            showFiles: config.size.showFiles,
+            title: "Image size (vector):"
         }))
         .pipe(gulp.dest(config.images.dest));
 

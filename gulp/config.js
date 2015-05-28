@@ -87,6 +87,10 @@ module.exports = {
         ],
         bower: 'src/js/libs'
     },
+    size: {
+        showFiles: true,
+        gzip: true
+    },
     stylestats: {
         type: 'json',
         outfile: true,

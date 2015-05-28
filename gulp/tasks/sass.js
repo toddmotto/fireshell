@@ -8,6 +8,7 @@
 'use strict';
 
 var gulp = require('gulp');
+var size = require('gulp-size');
 var sass = require('gulp-ruby-sass');
 var config = require('../config.js');
 var rename = require('gulp-rename');
@@ -31,6 +32,13 @@ gulp.task('sass', function () {
         .pipe(sourcemaps.write())
 
         .pipe(rename({ basename: config.sass.basename, suffix: '.min' }))
+
+        .pipe(size({
+            showFiles: config.size.showFiles,
+            gzip: config.size.gzip,
+            title: "CSS size:"
+        }))
+
         .pipe(gulp.dest(config.sass.dest))
 
         // Style statistics

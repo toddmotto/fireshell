@@ -9,6 +9,7 @@
 'use strict';
 
 var gulp = require('gulp');
+var size = require('gulp-size');
 var gutil = require('gulp-util');
 var source = require('vinyl-source-stream');
 var buffer = require('vinyl-buffer');
@@ -46,8 +47,15 @@ function bundle () {
         .pipe(source('scripts.min.js'))
         .pipe(buffer())
 
+        .pipe(size({
+            showFiles: config.size.showFiles,
+            gzip: config.size.gzip,
+            title: "JS sizes:"
+        }))
+
         .pipe(sourcemaps.init({ loadMaps: true }))
         .pipe(sourcemaps.write('./'))
+
         .pipe(gulp.dest(config.js.dest));
 
     return pipeline;
