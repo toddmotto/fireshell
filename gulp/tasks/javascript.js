@@ -44,7 +44,7 @@ function bundle () {
 
         .on('error', gutil.log.bind(gutil, 'Browserify Error'))
 
-        .pipe(source('scripts.min.js'))
+        .pipe(source(config.js.outputFilename))
         .pipe(buffer())
 
         .pipe(size({
@@ -81,7 +81,7 @@ function bundlify() {
 
         .on('error', gutil.log.bind(gutil, 'Browserify Error'))
 
-        .pipe(source('scripts.min.js'))
+        .pipe(source(config.js.outputFilename))
         .pipe(buffer())
 
         .pipe(sourcemaps.init({ loadMaps: true }))

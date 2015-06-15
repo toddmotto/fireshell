@@ -37,6 +37,7 @@ module.exports = {
     },
     js: {
         dest: dest + '/assets/js',
+        outputFilename: 'scripts.min.js',
         browserify: {
             entries: [
                 src + '/js/app.js'
