@@ -13,7 +13,9 @@ var gutil = require('gulp-util');
 var config = require('../config.js');
 var tagVersion = require('gulp-tag-version');
 
-gulp.task('bump', function () {
+var fs = require('fs');
+
+gulp.task('bump-version', function () {
 
     var options = {};
 
@@ -36,8 +38,22 @@ gulp.task('bump', function () {
     var pipeline = gulp.src(config.bump.src)
         .pipe(bump(options))
         .pipe(gulp.dest('./'))
-        .pipe(git.commit('Version bump'))
-        .pipe(tagVersion());;
+
+    return pipeline;
+
+});
+
+gulp.task('bump', ['bump-version'], function() {
+
+    // The package file is cached by Gulp at runtime, so even after
+    // bumping the version we still have to read it synchronously
+    var pkg = JSON.parse(fs.readFileSync('./package.json', 'utf8'));
+    var versionRaw = pkg.version;
+    var version = 'v' + versionRaw;
+
+    var pipeline = gulp.src('./package.json')
+        .pipe(git.commit(version))
+        .pipe(tagVersion());
 
     return pipeline;
 
