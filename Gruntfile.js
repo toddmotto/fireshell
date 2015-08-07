@@ -328,6 +328,7 @@ module.exports = function (grunt) {
     'autoprefixer:dev',
     'cssmin:dev',
     'jshint',
+    'uglify:temp',
     'concat:dev',
     'connect:livereload',
     'open',
