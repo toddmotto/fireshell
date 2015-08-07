@@ -143,6 +143,15 @@ module.exports = function (grunt) {
         files: {
           '<%= project.assets %>/js/scripts.min.js': '<%= project.js %>'
         }
+      },
+      // uglify modernizr.js
+      temp: {
+        options: {
+          preserveComments: 'some'
+        },
+        files: {
+          '<%= project.assets %>/components/modernizr.min.js': '<%= project.assets %>/components/modernizr.js'
+        }
       }
     },
 
