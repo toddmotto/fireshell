@@ -242,6 +242,11 @@ module.exports = function (grunt) {
               files: [
                 'dist/*'
               ]
+            },
+            modernizr: {
+              files: [
+                'modernizr.js'
+              ]
             }
           }
         }
@@ -253,6 +258,11 @@ module.exports = function (grunt) {
             jquery: {
               files: [
                 'dist/*'
+              ]
+            },
+            modernizr: {
+              files: [
+                'modernizr.js'
               ]
             }
           }
