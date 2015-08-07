@@ -235,10 +235,28 @@ module.exports = function (grunt) {
      */
     bower: {
       dev: {
-        dest: '<%= project.assets %>/components/'
+        dest: '<%= project.assets %>/components/',
+        options: {
+          packageSpecific: {
+            jquery: {
+              files: [
+                'dist/*'
+              ]
+            }
+          }
+        }
       },
       dist: {
-        dest: '<%= project.assets %>/components/'
+        dest: '<%= project.assets %>/components/',
+        options: {
+          packageSpecific: {
+            jquery: {
+              files: [
+                'dist/*'
+              ]
+            }
+          }
+        }
       }
     },
 
