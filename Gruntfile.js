@@ -143,6 +143,15 @@ module.exports = function (grunt) {
         files: {
           '<%= project.assets %>/js/scripts.min.js': '<%= project.js %>'
         }
+      },
+      // uglify modernizr.js
+      temp: {
+        options: {
+          preserveComments: 'some'
+        },
+        files: {
+          '<%= project.assets %>/components/modernizr.min.js': '<%= project.assets %>/components/modernizr.js'
+        }
       }
     },
 
@@ -163,7 +172,8 @@ module.exports = function (grunt) {
       },
       dist: {
         options: {
-          style: 'expanded'
+          style: 'expanded',
+          banner: '<%= tag.banner %>'
         },
         files: {
           '<%= project.assets %>/css/style.unprefixed.css': '<%= project.css %>'
@@ -206,9 +216,6 @@ module.exports = function (grunt) {
      */
     cssmin: {
       dev: {
-        options: {
-          banner: '<%= tag.banner %>'
-        },
         files: {
           '<%= project.assets %>/css/style.min.css': [
             '<%= project.src %>/components/normalize-css/normalize.css',
@@ -217,9 +224,6 @@ module.exports = function (grunt) {
         }
       },
       dist: {
-        options: {
-          banner: '<%= tag.banner %>'
-        },
         files: {
           '<%= project.assets %>/css/style.min.css': [
             '<%= project.src %>/components/normalize-css/normalize.css',
@@ -235,10 +239,38 @@ module.exports = function (grunt) {
      */
     bower: {
       dev: {
-        dest: '<%= project.assets %>/components/'
+        dest: '<%= project.assets %>/components/',
+        options: {
+          packageSpecific: {
+            jquery: {
+              files: [
+                'dist/*'
+              ]
+            },
+            modernizr: {
+              files: [
+                'modernizr.js'
+              ]
+            }
+          }
+        }
       },
       dist: {
-        dest: '<%= project.assets %>/components/'
+        dest: '<%= project.assets %>/components/',
+        options: {
+          packageSpecific: {
+            jquery: {
+              files: [
+                'dist/*'
+              ]
+            },
+            modernizr: {
+              files: [
+                'modernizr.js'
+              ]
+            }
+          }
+        }
       }
     },
 
@@ -291,6 +323,7 @@ module.exports = function (grunt) {
     'autoprefixer:dev',
     'cssmin:dev',
     'jshint',
+    'uglify:temp',
     'concat:dev',
     'connect:livereload',
     'open',
