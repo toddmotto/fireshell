@@ -172,7 +172,8 @@ module.exports = function (grunt) {
       },
       dist: {
         options: {
-          style: 'expanded'
+          style: 'expanded',
+          banner: '<%= tag.banner %>'
         },
         files: {
           '<%= project.assets %>/css/style.unprefixed.css': '<%= project.css %>'
@@ -215,9 +216,6 @@ module.exports = function (grunt) {
      */
     cssmin: {
       dev: {
-        options: {
-          banner: '<%= tag.banner %>'
-        },
         files: {
           '<%= project.assets %>/css/style.min.css': [
             '<%= project.src %>/components/normalize-css/normalize.css',
@@ -226,9 +224,6 @@ module.exports = function (grunt) {
         }
       },
       dist: {
-        options: {
-          banner: '<%= tag.banner %>'
-        },
         files: {
           '<%= project.assets %>/css/style.min.css': [
             '<%= project.src %>/components/normalize-css/normalize.css',
