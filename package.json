@@ -11,23 +11,25 @@
     "url": "http://github.com/toddmotto/fireshell.git"
   },
   "devDependencies": {
-    "bower": "~1.2.6",
-    "grunt": "~0.4.1",
-    "grunt-contrib-concat": "~0.3.0",
-    "grunt-contrib-sass": "~0.5.0",
-    "grunt-contrib-uglify": "~0.2.0",
-    "grunt-contrib-connect": "~0.3.0",
-    "grunt-contrib-jshint": "~0.4.3",
-    "grunt-contrib-watch": "~0.4.4",
-    "grunt-bower": "~0.7.0",
-    "grunt-autoprefixer": "~0.3.0",
-    "grunt-contrib-cssmin": "~0.6.2",
-    "grunt-contrib-clean": "~0.5.0",
-    "connect-livereload": "~0.2.0",
-    "grunt-open": "~0.2.0",
-    "matchdep": "~0.1.2"
+    "bower": "^1.7.7",
+    "connect-livereload": "^0.5.4",
+    "grunt": "^0.4.5",
+    "grunt-autoprefixer": "^3.0.4",
+    "grunt-banner": "^0.6.0",
+    "grunt-bower": "^0.21.0",
+    "grunt-contrib-clean": "^1.0.0",
+    "grunt-contrib-concat": "^1.0.0",
+    "grunt-contrib-connect": "^1.0.0",
+    "grunt-contrib-cssmin": "^1.0.0",
+    "grunt-contrib-jshint": "^1.0.0",
+    "grunt-contrib-sass": "^1.0.0",
+    "grunt-contrib-uglify": "^1.0.0",
+    "grunt-contrib-watch": "^0.6.1",
+    "grunt-open": "^0.2.3",
+    "load-grunt-tasks": "~3.4.1",
+    "serve-static": "^1.10.2"
   },
   "scripts": {
-    "postinstall" : "node_modules/.bin/bower install"
+    "postinstall": "node_modules/.bin/bower install"
   }
 }
