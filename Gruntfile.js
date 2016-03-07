@@ -13,19 +13,20 @@ var LIVERELOAD_PORT = 35729;
 var lrSnippet = require('connect-livereload')({
   port: LIVERELOAD_PORT
 });
-var mountFolder = function (connect, dir) {
-  return connect.static(require('path').resolve(dir));
+
+var mountFolder = function(connect, dir) {
+  return require('serve-static')(require('path').resolve(dir));
 };
 
 /**
  * Grunt module
  */
-module.exports = function (grunt) {
+module.exports = function(grunt) {
 
   /**
    * Dynamically load npm tasks
    */
-  require('matchdep').filterDev('grunt-*').forEach(grunt.loadNpmTasks);
+  require('load-grunt-tasks')(grunt);
 
   /**
    * FireShell Grunt config
@@ -51,18 +52,33 @@ module.exports = function (grunt) {
 
     /**
      * Project banner
-     * Dynamically appended to CSS/JS files
+     * Dynamically prepand to CSS/JS files
      * Inherits text from package.json
      */
     tag: {
       banner: '/*!\n' +
-              ' * <%= pkg.name %>\n' +
-              ' * <%= pkg.title %>\n' +
-              ' * <%= pkg.url %>\n' +
-              ' * @author <%= pkg.author %>\n' +
-              ' * @version <%= pkg.version %>\n' +
-              ' * Copyright <%= pkg.copyright %>. <%= pkg.license %> licensed.\n' +
-              ' */\n'
+        ' * <%= pkg.name %>\n' +
+        ' * <%= pkg.title %>\n' +
+        ' * <%= pkg.url %>\n' +
+        ' * @author <%= pkg.author %>\n' +
+        ' * @version <%= pkg.version %>\n' +
+        ' * Copyright <%= pkg.copyright %>. <%= pkg.license %> licensed.\n' +
+        ' */\n'
+    },
+
+    usebanner: {
+      taskName: {
+        options: {
+          position: 'top',
+          banner: '<%= tag.banner %>',
+          linebreak: true
+        },
+        files: {
+          src: ['<%= project.assets %>/css/style.min.css',
+            '<%= project.assets %>/js/scripts.min.js'
+          ]
+        }
+      }
     },
 
     /**
@@ -73,12 +89,12 @@ module.exports = function (grunt) {
      */
     connect: {
       options: {
-        port: 9000,
+        port: 9992,
         hostname: '*'
       },
       livereload: {
         options: {
-          middleware: function (connect) {
+          middleware: function(connect) {
             return [lrSnippet, mountFolder(connect, 'app')];
           }
         }
@@ -126,7 +142,6 @@ module.exports = function (grunt) {
       options: {
         stripBanners: true,
         nonull: true,
-        banner: '<%= tag.banner %>'
       }
     },
 
@@ -136,9 +151,6 @@ module.exports = function (grunt) {
      * Compresses and minifies all JavaScript files into one
      */
     uglify: {
-      options: {
-        banner: '<%= tag.banner %>'
-      },
       dist: {
         files: {
           '<%= project.assets %>/js/scripts.min.js': '<%= project.js %>'
@@ -154,8 +166,7 @@ module.exports = function (grunt) {
     sass: {
       dev: {
         options: {
-          style: 'expanded',
-          banner: '<%= tag.banner %>'
+          style: 'expanded'
         },
         files: {
           '<%= project.assets %>/css/style.unprefixed.css': '<%= project.css %>'
@@ -189,12 +200,16 @@ module.exports = function (grunt) {
       },
       dev: {
         files: {
-          '<%= project.assets %>/css/style.min.css': ['<%= project.assets %>/css/style.unprefixed.css']
+          '<%= project.assets %>/css/style.min.css': [
+            '<%= project.assets %>/css/style.unprefixed.css'
+          ]
         }
       },
       dist: {
         files: {
-          '<%= project.assets %>/css/style.prefixed.css': ['<%= project.assets %>/css/style.unprefixed.css']
+          '<%= project.assets %>/css/style.prefixed.css': [
+            '<%= project.assets %>/css/style.unprefixed.css'
+          ]
         }
       }
     },
@@ -206,9 +221,6 @@ module.exports = function (grunt) {
      */
     cssmin: {
       dev: {
-        options: {
-          banner: '<%= tag.banner %>'
-        },
         files: {
           '<%= project.assets %>/css/style.min.css': [
             '<%= project.src %>/components/normalize-css/normalize.css',
@@ -217,9 +229,6 @@ module.exports = function (grunt) {
         }
       },
       dist: {
-        options: {
-          banner: '<%= tag.banner %>'
-        },
         files: {
           '<%= project.assets %>/css/style.min.css': [
             '<%= project.src %>/components/normalize-css/normalize.css',
@@ -292,6 +301,7 @@ module.exports = function (grunt) {
     'cssmin:dev',
     'jshint',
     'concat:dev',
+    'usebanner',
     'connect:livereload',
     'open',
     'watch'
@@ -309,7 +319,8 @@ module.exports = function (grunt) {
     'cssmin:dist',
     'clean:dist',
     'jshint',
-    'uglify'
+    'uglify',
+    'usebanner'
   ]);
 
 };
