@@ -31,5 +31,8 @@
   },
   "scripts": {
     "postinstall": "node_modules/.bin/bower install"
+  },
+  "dependencies": {
+    "handlebars": "^4.0.12"
   }
 }
